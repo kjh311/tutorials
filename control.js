@@ -33,6 +33,9 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
             "name" : "AJAX",
             "link" : "ajax.html"
+        },{
+            "name" : "JS-Animation",
+            "link" : "JS-animation.html"
         }
     ]
 
