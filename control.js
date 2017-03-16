@@ -36,6 +36,9 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
             "name" : "JS-Animation",
             "link" : "JS-animation.html"
+        },{
+            "name" : "CDNs",
+            "link" : "CDN.html"
         }
     ]
 
