@@ -1,0 +1,97 @@
+<a href="index.html">HOME</a>
+
+<h2 id="phpoutline">PHP OUTLINE</h2>
+
+<p>PHP is a programming language that can do all sorts of things: evaluate form data sent from a browser, build custom web content to serve the browser, talk to a database, and even send and receive cookies (little packets of data that your browser uses to remember things.</p>
+
+<p>Check out the code in the editor. Looks familiar, doesn't it? That's because a lot of it is regular old HTML! The PHP code is written in the <?php and ?> . See how it generates numbers, creates lists, and adds text directly to your webpage?</p>
+
+<p>"So what?" You might say. "I can do that with JavaScript." And that's true! But JavaScript's knowledge can be limited.</p>
+
+<p>JavaScript generally runs in the browser, or client. This means it only really knows what's going on in your browser, plus whatever information it gets from the website(s) you're connecting to.</p>
+
+<p>PHP, on the other hand, runs on the same computer as the website you're visiting, which is known as the server. This means that it has access to all the information and files on that machine, which allows it to construct custom HTML pages to send to your browser, handle cookies, and run tasks or perform calculations with data from that website.</p>
+
+<h2 id="phpandhtml">PHP and HTML</h2>
+
+<p>PHP code can be written right into your HTML, like this:</p>
+
+<pre><code class="<body> language-<body>">  &lt;p&gt;
+    &lt;?php
+      echo "I'm learning PHP!";
+    ?&gt;
+  &lt;/p&gt;
+&lt;/body&gt;
+</code></pre>
+
+<p>Your PHP code goes inside the <?php and ?> delimiters. Here we use the function echo to output I'm learning PHP!. We also end the line with a semicolon.</p>
+
+<h2 id="phpfiles">PHP Files</h2>
+
+<p>You might have noticed that our main file is now index.php instead of index.html. This is important! It tells the PHP interpreter that there's PHP code in the file to evaluate.</p>
+
+<h2 id="echo">Echo</h2>
+
+<p>The echo function outputs strings. If you type</p>
+
+<pre><code>&lt;?php
+  echo "Hello!";
+?&gt;
+</code></pre>
+
+<p>PHP will output Hello!.</p>
+
+<p>You can type a string all at once, like this:</p>
+
+<pre><code>&lt;?php
+  echo "Hello, world!";
+?&gt;
+</code></pre>
+
+<p>Or use the concatenation operator, which glues several strings together:</p>
+
+<pre><code>&lt;?php
+   echo "Hello," . " " . "world" . "!";
+?&gt;
+</code></pre>
+
+<p>The concatenation operator is just a dot (.). (If you're coming to PHP from JavaScript, the dot does the same thing for strings that + does in JavaScript.)</p>
+
+<h2 id="arithmetic">Arithmetic</h2>
+
+<p>In addition to outputting strings, PHP can also do math.</p>
+
+<pre><code>&lt;?php
+  echo 5 * 7;
+?&gt;
+</code></pre>
+
+<p>Here we use echo to multiply 5 and 7, and we end our line of code with a semicolon. PHP will output 35.</p>
+
+<h2 id="variables">Variables</h2>
+
+<p>So far we've been outputting strings and doing math.</p>
+
+<p>To do more complex coding, we need a way to "save" these values. We can do this using variables. A variable can store a string or a number, and gives it a specific case-senstive name.</p>
+
+<p>Examples:</p>
+
+<pre><code>$myName = "Beyonce";
+$myAge = 32;
+</code></pre>
+
+<p>All variable names in PHP start with a dollar sign ( $ ).</p>
+
+<h2 id="semicolons">Semicolons</h2>
+
+<p>You've probably noticed that our lines of PHP code end in semicolons (;). PHP requires semicolons at the end of each statement, which is the shortest unit of standalone code. (For example, echo "Hello!"; or 2 + 2;)</p>
+
+<h2 id="comments">Comments</h2>
+
+<p>Just like we sometimes put comments in our CSS (using /* this syntax */) or in our HTML (using <!-- this syntax -->), we can also put comments in our PHP code! We do that using two forward slashes (//), like so:</p>
+
+<pre><code>&lt;?php
+    echo "I get printed!";
+    // I don't! I'm a comment.
+?&gt;
+</code></pre>

@@ -1,0 +1,39 @@
+var app = angular.module('myApp',[]);
+
+// MY CONTROLLER
+app.controller('myCtrl', ['$scope', function($scope) {
+
+  var vm = this;
+
+   $scope.links = [
+       {
+            "name" : "A/B Testing",
+            "link" : "AB_testing.html"
+        },{
+            "name" : "Angular",
+            "link" : "angular.html"
+        },{
+            "name" : "Hide API Keys w/Node.js",
+            "link" : "hide_api_key_node.html"
+        },{
+            "name" : "Javascript",
+            "link" : "javascript.html"
+        },{
+            "name" : "Setting up Node",
+            "link" : "node.html"
+        },{
+            "name" : "Host on Github",
+            "link" : "host_on_github.html"
+        },{
+            "name" : "PHP",
+            "link" : "PHP.html"
+        },{
+            "name" : "Test Driven Development",
+            "link" : "TDD.html"
+        },{
+            "name" : "AJAX",
+            "link" : "ajax.html"
+        }
+    ]
+
+}]);

@@ -1,0 +1,91 @@
+<a href="index.html">HOME</a>
+
+<h1 id="hideapikeynodejs">Hide API Key NodeJS</h1>
+
+<a href="https://www.linkedin.com/pulse/protect-your-api-keys-using-environment-variables-nodejs-dale-corns">https://www.linkedin.com/pulse/protect-your-api-keys-using-environment-variables-nodejs-dale-corns</a>
+
+<h2 id="kevnotes">KEV NOTES:</h2>
+
+<p>package.json:</p>
+
+<pre><code>  "main": "server.js",
+  "dependencies": {
+   "dotenv": "^1.2.0"
+  }
+</code></pre>
+
+<p>console:</p>
+
+<pre><code>npm install
+</code></pre>
+
+<p>server.js:</p>
+
+<pre><code>require('dotenv').load();
+</code></pre>
+
+<p>.env:</p>
+
+<pre><code>KEY=89b802471ef2d78f3003d97f713ac4c0
+</code></pre>
+
+<p>index.html:</p>
+
+<pre><code>&lt;script&gt;
+  var beerKey = '&lt;%= process.env.KEY %&gt;';
+&lt;/script&gt;
+</code></pre>
+
+<p>http get:</p>
+
+<pre><code>  request('http://api.brewerydb.com/v2/style/' + req.params.id + '?key=' + process.env.KEY + '&amp;format=json', function(error, response, body) {
+</code></pre>
+
+<h2 id="internetnotes">Internet notes:</h2>
+
+<p>The conventional alternative to what you're doing, especially when pertaining to API keys, is to use environment variables. This is an operating system-level configuration facility. Each process has its own set of environment variables, usually inherited from its parent process. By convention, environment variables have uppercase names.</p>
+
+<p>In node.js, you can access environment variables through process.env. For example, if you run an application like this:</p>
+
+<pre><code>$ MY_VARIABLE=test node app.js
+</code></pre>
+
+<p>You can access the value of the MY_VARIABLE environment variable via:</p>
+
+<pre><code>process.env.MY_VARIABLE
+</code></pre>
+
+<p>It can be tedious, however, to have to keep passing the environment variable(s) on each invocation of your program. That's why there are packages such as dotenv which allow you to store your environment variables in a text file.</p>
+
+<p>More specifically, you will have a file called .env and in it you might have:</p>
+
+<pre><code>MY_VARIABLE=test
+OTHER_VARIABLE=foo
+</code></pre>
+
+<p>At the beginning of your app.js, you then do:</p>
+
+<pre><code>require('dotenv').config();
+</code></pre>
+
+<p>This reads the environment variable values from the .env file. You can then access them as you would access any other environment variables:</p>
+
+<pre><code>console.log("MY_VARIABLE: " + process.env.MY_VARIABLE);
+console.log("OTHER_VARIABLE: " + process.env.OTHER_VARIABLE);
+</code></pre>
+
+<p>Now you don't have to explicitly pass the environment variables to your application upon invocation, i.e. you can just run it as usual:</p>
+
+<pre><code>$ node app.js
+</code></pre>
+
+<p>If you do pass one explicitly, it will override whatever value you gave in your .env file:</p>
+
+<pre><code>$ MY_VARIABLE=bar node app.js
+</code></pre>
+
+<p>Now the MY<em>VARIABLE environment variable will have a value of "bar" instead of "testing". Since OTHER</em>VARIABLE isn't passed explicitly, it retains its value of "foo" specified in the .env file.</p>
+
+
+<h3>Remember, this is for your Development environment, not Production
+It is important to remember that this setup should only be used for development. For production you should still set your environment variables in the standard way (If using Heroku, that would be heroku config:set <variable>=<value>).</h3>

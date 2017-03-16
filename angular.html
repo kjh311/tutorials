@@ -1,0 +1,2367 @@
+
+<a href="index.html">HOME</a>
+
+
+<h1 id="angularjs">ANGULARJS</h1>
+
+
+ <h3>Defining Custom Objects determines proficiency in extending the JavaScript object model with userdeveloped objects. Measures knowledge and understanding of prototypal inheritance, as well as variables lifecycle inside objects (scope and context).</h3>
+
+<p>In real life, a car is an object.</p>
+
+<p>A car has properties like weight and color, and methods like start and stop:</p>
+
+<p>Properties</p>
+
+<ul>
+<li>car.name = Fiat</li>
+
+<li>car.model = 500</li>
+
+<li>car.weight = 850kg</li>
+
+<li>car.color = white</li>
+</ul>
+
+<p>Methods</p>
+
+<ul>
+<li>car.start()</li>
+
+<li>car.drive()</li>
+
+<li>car.brake() </li>
+
+<li>car.stop()</li>
+</ul>
+
+<h3>CREATING OBJECTS:</h3>
+
+<h4>Object literal:</h4>
+
+<ul>
+<li><code>var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};</code></li>
+</ul>
+
+<h4>Other method:</h4>
+
+<ul>
+<li>```
+var person = new Object();
+person.firstName = "John";
+person.lastName = "Doe";
+person.age = 50;
+person.eyeColor = "blue";</li>
+</ul>
+
+<p>Accessing Object Properties:
+</br>
+
+- objectName.propertyName</br>
+- objectName["propertyName"]</p>
+
+<h4>METHODS:</h4>
+
+<p>- A method is a function associated with an object, or, simply put, a method is a property of an object that is a function. Methods are defined the way normal functions are defined, except that they have to be assigned as the property of an object. An example is:
+</p>
+
+<p>objectName.methodname = function_name;</p>
+
+<p>var myObj = {
+  myMethod: function(params) {
+    // ...do something
+  }
+};</p>
+
+<h4>ACCESSING OBJECT METHODS:</h4>
+
+- objectName.methodName()
+- name = person.fullName();
+
+<h4>SCOPE:</h4>
+
+- In JavaScript, scope is the set of variables, objects, and functions you have access to.
+- Local variables have local scope: They can only be accessed within the function.
+
+
+<p>function myFunction() {
+    var carName = "Volvo";
+    // code here can use carName
+}</p>
+
+<pre><code>- A variable declared outside a function, becomes GLOBAL.
+- A global variable has global scope: All scripts and functions on a web page can access it.
+- Do NOT create global variables unless you intend to.
+- With JavaScript, the global scope is the complete JavaScript environment.
+- In HTML, the global scope is the window object. All global variables belong to the window object.
+</code></pre>
+
+<p>var carName = " Volvo";
+// code here can use carName
+function myFunction() {
+    // code here can use    carName
+}</p>
+
+<pre><code>- Automatically Global. If you assign a value to a variable that has not been declared, it will automatically become a GLOBAL variable.
+</code></pre>
+
+<p>myFunction();
+// code here can use carName
+function myFunction() {
+    carName = "Volvo";
+}</p>
+
+<pre><code><h4>PROTOTYPICAL INHERITANCE:</h4>
+
+- When it comes to inheritance, JavaScript only has one construct: objects. Each object has an internal link to another object called its prototype. That prototype object has a prototype of its own, and so on until an object is reached with null as its prototype. null, by definition, has no prototype, and acts as the final link in this prototype chain.
+
+- ```
+var oldObject = {
+  a: 2,
+  m: function(b){
+    return this.a + 1;
+  }
+};
+ var newObject = Object.create(oldObject);
+// newObject is an object that inherits from oldObject
+</code></pre>
+
+<h4>Different ways to create objects and the resulting prototype chain</h4>
+
+<ul>
+<li>Objects created with syntax constructs:</li>
+</ul>
+
+<pre><code>var o = {a: 1};
+
+// The newly created object o has Object.prototype as its [[Prototype]]
+// o has no own property named 'hasOwnProperty'
+// hasOwnProperty is an own property of Object.prototype.
+// So o inherits hasOwnProperty from Object.prototype
+// Object.prototype has null as its prototype.
+// o ---&gt; Object.prototype ---&gt; null
+
+var a = ["yo", "whadup", "?"];
+
+// Arrays inherit from Array.prototype
+// (which has methods like indexOf, forEach, etc.)
+// The prototype chain looks like:
+// a ---&gt; Array.prototype ---&gt; Object.prototype ---&gt; null
+
+function f(){
+  return 2;
+}
+
+// Functions inherit from Function.prototype
+// (which has methods like call, bind, etc.)
+// f ---&gt; Function.prototype ---&gt; Object.prototype ---&gt; null
+</code></pre>
+
+<ul>
+<li>With a constructor
+
+
+<ul>
+<li>A "constructor" in JavaScript is "just" a function that happens to be called with the new operator.</li></ul>
+</li>
+</ul>
+
+<pre><code>function Graph() {
+  this.vertices = [];
+  this.edges = [];
+}
+
+Graph.prototype = {
+  addVertex: function(v){
+    this.vertices.push(v);
+  }
+};
+
+var g = new Graph();
+// g is an object with own properties 'vertices' and 'edges'.
+// g.[[Prototype]] is the value of Graph.prototype when new Graph() is executed.
+</code></pre>
+
+<ul>
+<li>With Object.create
+
+
+<ul>
+<li>ECMAScript 5 introduced a new method: Object.create(). Calling this method creates a new object. The prototype of this object is the first argument of the function:</li></ul>
+</li>
+</ul>
+
+<pre><code>var a = {a: 1};
+// a ---&gt; Object.prototype ---&gt; null
+
+var b = Object.create(a);
+// b ---&gt; a ---&gt; Object.prototype ---&gt; null
+console.log(b.a); // 1 (inherited)
+
+var c = Object.create(b);
+// c ---&gt; b ---&gt; a ---&gt; Object.prototype ---&gt; null
+
+var d = Object.create(null);
+// d ---&gt; null
+console.log(d.hasOwnProperty);
+// undefined, because d doesn't inherit from Object.prototype
+</code></pre>
+
+<ul>
+<li>With the class keyword
+
+
+<ul>
+<li>ECMAScript 6 introduced a new set of keywords implementing classes. Although these constructs look like those familiar to developers of class-based languages, they are not the same. JavaScript remains prototype-based. The new keywords include class, constructor, static, extends, and super.</li></ul>
+</li>
+</ul>
+
+<pre><code>class Polygon {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+}
+
+class Square extends Polygon {
+  constructor(sideLength) {
+    super(sideLength, sideLength);
+  }
+  get area() {
+    return this.height * this.width;
+  }
+  set sideLength(newLength) {
+    this.height = newLength;
+    this.width = newLength;
+  }
+}
+var square = new Square(2);
+</code></pre>
+
+<h2> Document Objects assesses understanding of the JavaScript document object and the methods it provides for dynamically generating Web pages.</h2>
+
+<h4>The HTML DOM Document Object</h4>
+
+<ul>
+<li><p>The document object represents your web page.</p></li>
+
+<li><p>If you want to access any element in an HTML page, you always start with accessing the document object.</p></li>
+
+<li><p>document.getElementById(id)        Find an element by element id</p></li>
+
+<li><p>document.getElementsByTagName(name) Find elements by tag name</p></li>
+
+<li><p>document.getElementsByClassName(name)    Find elements by class name</p></li>
+</ul>
+
+<h4>Changing HTML Elements</h4>
+
+<ul>
+<li>element.innerHTML =  new html content    Change the inner HTML of an element</li>
+
+<li>element.attribute = new value    Change the attribute value of an HTML element</li>
+
+<li>element.setAttribute(attribute, value)    Change the attribute value of an HTML element</li>
+
+<li>element.style.property = new style    Change the style of an HTML element</li>
+</ul>
+
+<h4>Adding and Deleting Elements</h4>
+
+<ul>
+<li>document.createElement(element)    Create an HTML element</li>
+
+<li>document.removeChild(element)    Remove an HTML element</li>
+
+<li>document.appendChild(element)    Add an HTML element</li>
+
+<li>document.replaceChild(element)    Replace an HTML element</li>
+
+<li>document.write(text)    Write into the HTML output stream</li>
+</ul>
+
+<h4>Adding Events Handlers</h4>
+
+<ul>
+<li>```
+document.getElementById(id).onclick = function(){code}</li>
+</ul>
+
+<pre><code><h3>Finding HTML Objects</h3>
+
+- The first HTML DOM Level 1 (1998), defined 11 HTML objects, object collections, and properties. These are still valid in HTML5.
+- Later, in HTML DOM Level 3, more objects, collections, and properties were added.
+</code></pre>
+
+<ul>
+<li>document.anchors Returns all a elements that have a name attribute    </li>
+<li>document.applets Returns all applet elements (Deprecated in HTML5)    </li>
+<li>document.baseURI    Returns the absolute base URI of the document   </li>
+<li>document.body    Returns the body element  </li>
+<li>document.cookie    Returns the document's cookie   </li>
+<li>document.doctype    Returns the document's doctype  </li>
+<li>document.documentElement    Returns the html element  </li>
+<li>document.documentMode    Returns the mode used by the browser    </li>
+<li>document.documentURI    Returns the URI of the document </li>
+<li>document.domain    Returns the domain name of the document server  </li>
+<li>document.domConfig    Obsolete. Returns the DOM configuration </li>
+<li>document.embeds    Returns all embed elements    </li>
+<li>document.forms    Returns all form elements </li>
+<li>document.head    Returns the head element  </li>
+<li>document.images    Returns all img elements  </li>
+<li>document.implementation    Returns the DOM implementation  </li>
+<li>document.inputEncoding    Returns the document's encoding (character set) </li>
+<li>document.lastModified    Returns the date and time the document was updated  </li>
+<li>document.links    Returns all area and a elements that have a href attribute  </li>
+<li>document.readyState    Returns the (loading) status of the document    </li>
+<li>document.referrer    Returns the URI of the referrer (the linking document)  </li>
+<li>document.scripts    Returns all script elements   </li>
+<li>document.strictErrorChecking    Returns if error checking is enforced   </li>
+<li>document.title    Returns the title element </li>
+<li>document.URL    Returns the complete URL of the document</li>
+</ul>
+
+<pre><code><h3>JavaScript - HTML DOM Methods</h3>
+
+- HTML DOM methods are actions you can perform (on HTML Elements).
+
+- HTML DOM properties are values (of HTML Elements) that you can set or change.
+
+<h2>Handling Events assesses knowledge of essential JavaScript event-handling operations including onChange, onClick, onLoad and other related events.</h2>
+
+An HTML event can be something the browser does, or something a user does.
+
+- Here are some examples of HTML events:
+    - An HTML web page has finished loading
+    - An HTML input field was changed
+    - An HTML button was clicked
+</code></pre>
+
+ onclick="displayDate()">The time is?
+
+<pre><code>Here is a list of some common HTML events:
+
+<table>
+  <tr>
+<th>Event</th>    <th>Description</th>
+</tr>
+<tr><td> onchange  </td>  <td>An HTML element has been changed</td></tr>
+<tr><td> onclick  </td>  <td>The user clicks an HTML element</td></tr>
+<tr><td> onmouseover</td>    <td>The user moves the mouse over an HTML element</td></tr>
+<tr><td> onmouseout </td>  <td>The user moves the mouse away from an HTML element</td></tr>
+<tr><td> onkeydown  </td>  <td>The user pushes a keyboard key</td></tr>
+<tr><td> onload   </td> <td>The browser has finished loading the page</td></tr>
+</table>
+
+<h2>Handling Functions determines knowledge of JavaScript function definition and calling, function arguments and functions as first class objects.</h2>
+-
+</code></pre>
+
+<p>function name(parameter1, parameter2, parameter3) {
+    code to be executed
+}</p>
+
+<pre><code>- Function parameters are the names listed in the function definition.
+- Function arguments are the real values received by the function when it is invoked.
+- Inside the function, the arguments (the parameters) behave as local variables.
+
+Function Invocation
+
+The code inside the function will execute when "something" invokes (calls) the function:
+
+- When an event occurs (when a user clicks a button)
+- When it is invoked (called) from JavaScript code
+- Automatically (self invoked)
+
+- When JavaScript reaches a return statement, the function will stop executing.
+</code></pre>
+
+<p>var x = myFunction(4, 3);        // Function is called, return value will end up in x</p>
+
+<p>function myFunction(a, b) {
+    return a * b;                // Function returns the product of a and b
+}</p>
+
+<pre><code>The Arguments Object
+
+- JavaScript functions have a built-in object called the arguments object.
+- The argument object contains an array of the arguments used when the function was called (invoked).
+</code></pre>
+
+<p>x = findMax(1, 123, 500, 115, 44, 88);</p>
+
+<p>function findMax() {
+    var i;
+    var max = -Infinity;
+    for (i = 0; i &lt; arguments.length; i++) {
+        if (arguments[i] > max) {
+            max = arguments[i];
+        }
+    }
+    return max;
+}</p>
+
+<pre><code>Arguments are Passed by Value
+
+- The parameters, in a function call, are the function's arguments.
+
+Invoking a Function as a Method
+</code></pre>
+
+<p>var myObject = {
+    firstName:"John",
+    lastName: "Doe",
+    fullName: function () {
+        return this.firstName + " " + this.lastName;
+    }
+}
+myObject.fullName();         // Will return "John Doe"</p>
+
+<pre><code>Invoking a Function with a Function Constructor
+
+- If a function invocation is preceded with the new keyword, it is a constructor invocation.
+- It looks like you create a new function, but since JavaScript functions are objects you actually create a new object:
+</code></pre>
+
+<p>// This is a function constructor:
+function myFunction(arg1, arg2) {
+    this.firstName = arg1;
+    this.lastName  = arg2;
+}</p>
+
+<p>// This    creates a new object
+var x = new myFunction("John","Doe");
+x.firstName;                             // Will return "John"</p>
+
+<pre><code>FIRST CLASS OBJECT:
+
+-  In JavaScript, functions are first-class objects, because they can have properties and methods just like any other object.
+
+
+# HTML5 Form Elements tests knowledge of the HTML5 Form elements and validation of data input by the user.
+-
+
+JavaScript Form Validation
+
+- HTML form validation can be done by JavaScript.
+- If a form field (fname) is empty, this function alerts a message, and returns false, to prevent the form from being submitted:
+</code></pre>
+
+<p>function validateForm() {
+    var x = document.forms["myForm"]["fname"].value;
+    if (x == null || x == "") {
+        alert("Name must be filled out");
+        return false;
+    }
+}</p>
+
+<pre><code>HTML FORM:
+</code></pre>
+
+<form name="myForm" action="demo_form.asp" onsubmit="return validateForm()" method="post">
+Name: <input type="text" name="fname">
+<input type="submit" value="Submit">
+</form>
+
+<pre><code>Automatic HTML Form Validation
+
+- HTML form validation can be performed automatically by the browser:
+- If a form field (fname) is empty, the required attribute prevents this form from being submitted:
+</code></pre>
+
+<form action="demo_form.asp" method="post">
+  <input type="text" name="fname" required>
+  <input type="submit" value="Submit">
+</form>
+
+<pre><code>Data Validation
+
+- Data validation is the process of ensuring that user input is clean, correct, and useful.
+
+Typical validation tasks are:
+
+- has the user filled in all required fields?
+- has the user entered a valid date?
+- has the user entered text in a numeric field?
+- Most often, the purpose of data validation is to ensure correct user input.
+
+- Validation can be defined by many different methods, and deployed in many different ways.
+- Server side validation is performed by a web server, after input has been sent to the server.
+- Client side validation is performed by a web browser, before input is sent to a web server.
+
+HTML Constraint Validation
+
+- HTML5 introduced a new HTML validation concept called constraint validation.
+
+HTML constraint validation is based on:
+
+- Constraint validation HTML Input Attributes
+- Constraint validation CSS Pseudo Selectors
+- Constraint validation DOM Properties and Methods
+- Constraint Validation HTML Input Attributes
+
+Attribute    Description
+
+- disabled    Specifies that the input element should be disabled
+- max    Specifies the maximum value of an input element
+- min    Specifies the minimum value of an input element
+- pattern    Specifies the value pattern of an input element
+- required    Specifies that the input field requires an element
+- type     Specifies the type of an input element
+- validity    Contains boolean properties related to the validity of an input element.
+- validationMessage    Contains the message a browser will display when the validity is false.
+- willValidate    Indicates if an input element will be validated.
+
+Constraint Validation CSS Pseudo Selectors
+
+Selector    Description
+
+- :disabled    Selects input elements with the "disabled" attribute specified
+- :invalid    Selects input elements with invalid values
+- :optional    Selects input elements with no "required" attribute specified
+- :required    Selects input elements with the "required" attribute specified
+- :valid    Selects input elements with valid values
+
+Validity Properties
+
+The validity property of an input element contains a number of properties related to the validity of data:
+
+Property    Description
+
+- customError    Set to true, if a custom validity message is set.
+- patternMismatch    Set to true, if an element's value does not match its pattern attribute.
+- rangeOverflow    Set to true, if an element's value is greater than its max attribute.
+- rangeUnderflow    Set to true, if an element's value is less than its min attribute.
+- stepMismatch    Set to true, if an element's value is invalid per its step attribute.
+- tooLong    Set to true, if an element's value exceeds its maxLength attribute.
+- typeMismatch    Set to true, if an element's value is invalid per its type attribute.
+- valueMissing    Set to true, if an element (with a required attribute) has no value.
+- valid    Set to true, if an element's value is valid.
+</code></pre>
+
+<p><input id="id1" type="number" max="100">
+<button onclick="myFunction()">OK</button></p>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+    var txt = "";
+    if (document.getElementById("id1").validity.rangeOverflow) {
+       txt = "Value too large";
+    }
+    document.getElementById("demo").innerHTML = txt;
+}
+</script>
+
+<pre><code># HTML5 DOM measures knowledge of the Document Object Model interface, and manipulating the DOM using JavaScript.
+-
+
+The HTML DOM Document Object
+
+- The document object represents your web page.
+- If you want to access any element in an HTML page, you always start with accessing the document object.
+
+- document.getElementById(id)        Find an element by element id
+- document.getElementsByTagName(name) Find elements by tag name
+- document.getElementsByClassName(name)    Find elements by class name
+
+Changing HTML Elements
+
+- element.innerHTML =  new html content    Change the inner HTML of an element
+- element.attribute = new value    Change the attribute value of an HTML element
+- element.setAttribute(attribute, value)    Change the attribute value of an HTML element
+- element.style.property = new style    Change the style of an HTML element
+
+Adding and Deleting Elements
+
+- document.createElement(element)    Create an HTML element
+- document.removeChild(element)    Remove an HTML element
+- document.appendChild(element)    Add an HTML element
+- document.replaceChild(element)    Replace an HTML element
+- document.write(text)    Write into the HTML output stream
+
+Adding Events Handlers
+
+- ```
+document.getElementById(id).onclick = function(){code}
+</code></pre>
+
+<p>Finding HTML Objects</p>
+
+<ul>
+<li>The first HTML DOM Level 1 (1998), defined 11 HTML objects, object collections, and properties. These are still valid in HTML5.</li>
+
+<li>Later, in HTML DOM Level 3, more objects, collections, and properties were added.</li>
+</ul>
+
+<pre><code>document.anchors Returns all &lt;a&gt; elements that have a name attribute    1
+document.applets Returns all &lt;applet&gt; elements (Deprecated in HTML5)    1
+document.baseURI    Returns the absolute base URI of the document   3
+document.body    Returns the &lt;body&gt; element  1
+document.cookie    Returns the document's cookie   1
+document.doctype    Returns the document's doctype  3
+document.documentElement    Returns the &lt;html&gt; element  3
+document.documentMode    Returns the mode used by the browser    3
+document.documentURI    Returns the URI of the document 3
+document.domain    Returns the domain name of the document server  1
+document.domConfig    Obsolete. Returns the DOM configuration 3
+document.embeds    Returns all &lt;embed&gt; elements    3
+document.forms    Returns all &lt;form&gt; elements 1
+document.head    Returns the &lt;head&gt; element  3
+document.images    Returns all &lt;img&gt; elements  1
+document.implementation    Returns the DOM implementation  3
+document.inputEncoding    Returns the document's encoding (character set) 3
+document.lastModified    Returns the date and time the document was updated  3
+document.links    Returns all &lt;area&gt; and &lt;a&gt; elements that have a href attribute  1
+document.readyState    Returns the (loading) status of the document    3
+document.referrer    Returns the URI of the referrer (the linking document)  1
+document.scripts    Returns all &lt;script&gt; elements   3
+document.strictErrorChecking    Returns if error checking is enforced   3
+document.title    Returns the &lt;title&gt; element 1
+document.URL    Returns the complete URL of the document
+</code></pre>
+
+<p>JavaScript - HTML DOM Methods</p>
+
+<ul>
+<li><p>HTML DOM methods are actions you can perform (on HTML Elements).</p></li>
+
+<li><p>HTML DOM properties are values (of HTML Elements) that you can set or change.</p></li>
+</ul>
+
+<h2 id="html5documentsecurityanddesignconcernstestsknowledgeofthedocumentsecurityfeaturesofhtml5includingtheuseofthesandboxattributeandgeneralwebsitedesignconcerns"># HTML5 Document Security and Design Concerns tests knowledge of the Document security features of HTML5, including the use of the sandbox attribute, and general web site design concerns.</h2>
+
+<p>CROSS SITE SCRIPTING</p>
+
+<ul>
+<li>A cross-site scripting (XSS) hole is when an attacker can inject scripts into a page sent by your server. Browsers treat these injected scripts like any other script in the page.</li>
+</ul>
+
+<p>Password fields in user-submitted HTML</p>
+
+<ul>
+<li>Web sites should not allow users to put up forms with &lt; input type="password" >. Password managers may fill in the password, thinking the form is a legitimate part of the site.</li>
+</ul>
+
+<p>Cross-site request forgery (CSRF)</p>
+
+<ul>
+<li>A Cross-site request forgery hole is when a malicious site can cause a visitor's browser to make a request to your server that causes a change on the server. The server thinks that because the request comes with the user's cookies, the user wanted to submit that form.</li>
+</ul>
+
+<p>Sandboxed frames</p>
+
+<ul>
+<li>Use the sandbox attribute of an iframe for untrusted content.</li>
+</ul>
+
+<h2 id="html5imagesandexternaldocumentsdeterminesknowledgeofusingimagesandotherexternalcontentwithinanhtml5documentandusingexternalcss3andjavascriptfiles"># HTML5 Images and External Documents determines knowledge of using images and other external content within an HTML5 document, and using external CSS3 and JavaScript files.</h2>
+
+<p>Images</p>
+
+<pre><code>&lt;img src="smiley.gif" alt="Smiley face"&gt;
+</code></pre>
+
+<p>Link</p>
+
+<pre><code>&lt;a href="http://www.w3schools.com/html/"&gt;Visit our HTML tutorial&lt;/a&gt;
+</code></pre>
+
+<p>CSS</p>
+
+<pre><code>&lt;head&gt;
+&lt;link rel="stylesheet" type="text/css" href="mystyle.css"&gt;
+&lt;/head&gt;
+</code></pre>
+
+<p>JS</p>
+
+<pre><code>&lt;script src="myscripts.js"&gt;&lt;/script&gt;
+
+&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<p>LOADING EXTERNAL HTML DOC:</p>
+
+<pre><code>&lt;object data="html/stuff_to_include.html"&gt;
+    Your browser doesn’t support the object tag.
+&lt;/object&gt;
+</code></pre>
+
+<h2 id="html5syntaxandsemanticstestsknowledgeofthedoctypeelementcharacterencodinganduseofhtml5syntaxandsemanticstobuildvalidhtml5documents"># HTML5 Syntax and Semantics tests knowledge of the DOCTYPE element, character encoding and use of HTML5 syntax and semantics to build valid HTML5 documents.</h2>
+
+<p>The <!DOCTYPE> declaration is not an HTML tag; it is an instruction to the web browser about what version of HTML the page is written in.</p>
+
+<p>Tip: Always add the <!DOCTYPE> declaration to your HTML documents, so that the browser knows what type of document to expect.</p>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+</code></pre>
+
+<p>CHARACTER ENCODING</p>
+
+<ul>
+<li>To display an HTML page correctly, a web browser must know which character set (character encoding) to use.</li>
+
+<li>alphanumeric characters that could be used on the internet: numbers (0-9), English letters (A-Z), and some special characters like ! $ + - ( ) @ &lt; > .</li>
+
+<li>ANSI (Windows-1252) was the original Windows character set, with support for 256 different character codes.</li>
+
+<li>ISO-8859-1 was the default character set for HTML 4. This character set also supported 256 different character codes.</li>
+
+<li>Because ANSI and ISO-8859-1 were so limited, the default character encoding was changed to UTF-8 in HTML5.</li>
+
+<li>UTF-8 (Unicode) covers almost all of the characters and symbols in the world.</li>
+</ul>
+
+<pre><code>&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+&lt;/head&gt;
+</code></pre>
+
+<p>SEMANTIC HTML</p>
+
+<p>Semantic HTML is the use of HTML markup to reinforce the semantics, or meaning, of the information in webpages and web applications rather than merely to define its presentation or look.</p>
+
+<ul>
+<li>As an example, recent HTML standards discourage use of the tag &lt; i > (italic, a typeface) in preference of more accurate tags such as &lt; em > (emphasis); the CSS stylesheet should then specify whether emphasis is denoted by an italic font, a bold font, underlining, slower or louder audible speech etc. This is because italics are used for purposes other than emphasis, such as citing a source; for this, HTML 4 provides the tag &lt; cite >.</li>
+</ul>
+
+<h2 id="html5tableslistsandlinkstestsknowledgeoftheuseoftablesorderedandunorderedlistslinkselementswithinhtml5"># HTML5 Tables, Lists and Links tests knowledge of the use of tables, ordered and unordered lists, Links elements within HTML5.</h2>
+
+<p>TABLE</p>
+
+<ul>
+<li>An HTML table is defined with the &lt; table > tag.</li>
+
+<li>Each table row is defined with the &lt; tr > tag. A table header is defined with the &lt; th > tag. By default, table headings are bold and centered. A table data/cell is defined with the &lt; td > tag.</li>
+</ul>
+
+<pre><code>&lt;table style="width:100%"&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Firstname&lt;/th&gt;
+    &lt;th&gt;Lastname&lt;/th&gt;
+    &lt;th&gt;Age&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Jill&lt;/td&gt;
+    &lt;td&gt;Smith&lt;/td&gt;
+    &lt;td&gt;50&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Eve&lt;/td&gt;
+    &lt;td&gt;Jackson&lt;/td&gt;
+    &lt;td&gt;94&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+
+<p>LISTS</p>
+
+<p>Unordered List</p>
+
+<ul>
+<li>An unordered list starts with the &lt; ul > tag. Each list item starts with the &lt; li > tag.</li>
+
+<li>The list items will be marked with bullets (small black circles) by default:</li>
+</ul>
+
+<pre><code>&lt;ul style="list-style-type:disc"&gt;
+  &lt;li&gt;Coffee&lt;/li&gt;
+  &lt;li&gt;Tea&lt;/li&gt;
+  &lt;li&gt;Milk&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+<p>List Style Type</p>
+
+<ul>
+<li>The CSS list-style-type property is used to define the style of the list item marker:</li>
+</ul>
+
+<pre><code>Value    Description
+disc    Sets the list item marker to a bullet (default)
+circle    Sets the list item marker to a circle
+square    Sets the list item marker to a square
+none    The list items will not be marked
+</code></pre>
+
+<p>Ordered HTML List</p>
+
+<ul>
+<li>An ordered list starts with the &lt; ol > tag. Each list item starts with the &lt; li > tag.</li>
+</ul>
+
+<p>Ordered HTML List - The Type Attribute</p>
+
+<ul>
+<li>The type attribute of the &lt; ol > tag, defines the type of the list item marker:</li>
+</ul>
+
+<pre><code>Type    Description
+type="1"    The list items will be numbered with numbers (default)
+type="A"    The list items will be numbered with uppercase letters
+type="a"    The list items will be numbered with lowercase letters
+type="I"    The list items will be numbered with uppercase roman numbers
+type="i"    The list items will be numbered with lowercase roman numbers
+</code></pre>
+
+<p>HTML Description Lists</p>
+
+<ul>
+<li>A description list is a list of terms, with a description of each term.</li>
+
+<li>The &lt; dl > tag defines the description list, the &lt; dt > tag defines the term (name), and the &lt; dd > tag describes each term: </li>
+</ul>
+
+<pre><code>&lt;dl&gt;
+  &lt;dt&gt;Coffee&lt;/dt&gt;
+  &lt;dd&gt;- black hot drink&lt;/dd&gt;
+  &lt;dt&gt;Milk&lt;/dt&gt;
+  &lt;dd&gt;- white cold drink&lt;/dd&gt;
+&lt;/dl&gt;
+</code></pre>
+
+<p>produces:</p>
+
+<pre><code>A Description List
+
+Coffee
+- black hot drink
+Milk
+- white cold drink
+</code></pre>
+
+<p>Nested HTML Lists</p>
+
+<pre><code>&lt;ul&gt;
+  &lt;li&gt;Coffee&lt;/li&gt;
+  &lt;li&gt;Tea
+    &lt;ul&gt;
+      &lt;li&gt;Black tea&lt;/li&gt;
+      &lt;li&gt;Green tea&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Milk&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+<p>LINKS:</p>
+
+<p>Abosolute URL:</p>
+
+<pre><code>&lt;a href="http://www.w3schools.com/html/"&gt;Visit our HTML tutorial&lt;/a&gt;
+</code></pre>
+
+<p>Relative URL / Local:</p>
+
+<pre><code>&lt;a href="html_images.asp"&gt;HTML Images&lt;/a&gt;
+</code></pre>
+
+<p>TML Links - The target Attribute</p>
+
+<ul>
+<li>The target attribute specifies where to open the linked document.</li>
+</ul>
+
+<pre><code>&lt;a href="http://www.w3schools.com/" target="_blank"&gt;Visit W3Schools!&lt;/a&gt;
+</code></pre>
+
+<p>HTML Links - Create a Bookmark</p>
+
+<ul>
+<li>HTML bookmarks are used to allow readers to jump to specific parts of a Web page.</li>
+</ul>
+
+<p>First, create a bookmark with the id attribute:</p>
+
+<pre><code>&lt;h2 id="tips"&gt;Useful Tips Section&lt;/h2&gt;
+</code></pre>
+
+<p>Then, add a link to the bookmark ("Useful Tips Section"), from within the same page:</p>
+
+<pre><code>&lt;a href="#tips"&gt;Visit the Useful Tips Section&lt;/a&gt;
+</code></pre>
+
+<h2 id="html5validationissuesandbrowsersupportdeterminesknowledgeofhowtovalidatehtml5documentsandthecheckingforhtml5featuresinthebrowser"># HTML5 Validation Issues and Browser Support determines knowledge of how to validate HTML5 documents, and the checking for HTML5 features in the browser.</h2>
+
+<p>HTML Validator</p>
+
+<ul>
+<li>Validates the HTML string/file for well-formedness and compliance with w3c standards. It tries to make use of the doctype declaration to evaluate the document structrue but will resort to best practice if unmatched. The validator will report on missing or invalid attributes, unknown tags, unclosed tags and more.</li>
+</ul>
+
+<pre><code>https://validator.w3.org/
+</code></pre>
+
+<p>Which features will Work in Which Browsers?</p>
+
+<pre><code>http://caniuse.com/
+</code></pre>
+
+<h2 id="usingjavascripttestsunderstandingofthecorefeaturesofjavascriptusedinconjunctionwithhtml5includingbasicsyntaxandoperators"># Using JavaScript tests understanding of the core features of JavaScript used in conjunction with HTML5, including basic syntax and operators.</h2>
+
+<h2 id="angularjsarchitecturetestsknowledgeofangularjsserviceshowtohookangularjstoanhtmldocumentandtoorganizeanangularjsprojectmoduledefinitionmoduledependenciesusedependencyinjectiontoconsumeservices"># AngularJS Architecture tests knowledge of AngularJS services, how to hook AngularJS to an HTML document and to organize an AngularJS project (module definition, module dependencies, use dependency injection to consume services).</h2>
+
+<p>ANGULAR SERVICES:</p>
+
+<ul>
+<li>Angular services are substitutable objects that are wired together using dependency injection (DI). You can use services to organize and share code across your app.</li>
+
+<li>Angular services are: Lazily instantiated – Angular only instantiates a service when an application component depends on it.</li>
+
+<li>Angular offers several useful services (like $http), but for most applications you'll also want to create your own.</li>
+</ul>
+
+<p>Using a Service</p>
+
+<ul>
+<li>To use an Angular service, you add it as a dependency for the component (controller, service, filter or directive) that depends on the service. Angular's dependency injection subsystem takes care of the rest.</li>
+</ul>
+
+<pre><code>angular.
+module('myServiceModule', []).
+ controller('MyController', ['$scope', 'notify', function($scope, notify) {
+   $scope.callNotify = function(msg) {
+     notify(msg);
+   };
+ }]).
+factory('notify', ['$window', function(win) {
+   var msgs = [];
+   return function(msg) {
+     msgs.push(msg);
+     if (msgs.length === 3) {
+       win.alert(msgs.join('\n'));
+       msgs = [];
+     }
+   };
+ }]);
+</code></pre>
+
+<p>Creating Services</p>
+
+<ul>
+<li>Application developers are free to define their own services by registering the service's name and service factory function, with an Angular module.</li>
+
+<li>The service factory function generates the single object or function that represents the service to the rest of the application. The object or function returned by the service is injected into any component (controller, service, filter or directive) that specifies a dependency on the service.</li>
+</ul>
+
+<p>Registering Services</p>
+
+<p>Angular provides us with three ways to create and register our own service.</p>
+
+<ul>
+<li><p>1) Factory</p>
+
+<ul>
+<li><p>When you’re using a Factory you create an object, add properties to it, then return that same object. When you pass this service into your controller, those properties on the object will now be available in that controller through your factory.
+<img src="https://cdn-images-1.medium.com/max/800/0*C8zf8H1AlRVxOpKq.png" alt="code" /></p>
+
+<p>```
+angular.module("services", [])
+.factory("myFactory", [function () {
+// Logic goes here.
+}]);</p></li></ul>
+
+<pre><code>```
+.factory("myFactory", ["dependency", function (dependency) {
+// ...
+</code></pre></li>
+</ul>
+
+<pre><code>var app = angular.module("myApp", []);
+
+app.controller("myCtrl", ['$scope', 'userService', function($scope, userService) {
+    $scope.firstName = "John";
+    $scope.lastName = "Doe";
+
+    $scope.doIt = function(){
+      userService.firstFunction();
+    }
+}]);
+
+app.factory('userService', [function(){
+
+var blah = {};
+  blah.firstFunction = function () {
+    $("#demo").html("This text is userService through a factory and connected to the dom with $scope!");
+    // alert('userService through factory!');
+  };
+
+return blah;
+}]);
+</code></pre>
+
+<ul>
+<li>2) Service
+
+
+<ul>
+<li>When you’re using Service, it’s instantiated with the ‘new’ keyword. Because of that, you’ll add properties to ‘this’ and the service will return ‘this’. When you pass the service into your controller, those properties on ‘this’ will now be available on that controller through your service.</li>
+
+<li>
+<img src="https://cdn-images-1.medium.com/max/800/0*IwVP-hgA-ivxlP3P.png" alt="pic" /></li></ul>
+</li>
+
+<li>3) Provider
+
+
+<ul>
+<li>Providers are the only service you can pass into your .config() function. Use a provider when you want to provide module-wide configuration for your service object before making it available.
+<img src="https://cdn-images-1.medium.com/max/800/0*MOu_5Sbnm9ps5N6i.png" alt="pic" /></li></ul>
+</li>
+</ul>
+
+<pre><code>var myModule = angular.module('myModule', []);
+myModule.factory('serviceId', function() {
+  var shinyNewServiceInstance;
+  // factory function body that constructs shinyNewServiceInstance
+  return shinyNewServiceInstance;
+});
+</code></pre>
+
+<p>Hook Angular to HTML:</p>
+
+<pre><code>&lt;script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<pre><code>&lt;body ng-app=""&gt;
+</code></pre>
+
+<p>MODULE.</p>
+
+<ul>
+<li>A module is a collection of services, directives, controllers, filters, and configuration information. angular.module is used to configure the $injector. </li>
+
+<li>However it's more likely that you'll just use ngApp or angular.bootstrap to simplify this process for you.</li>
+
+<li>The angular.module is a global place for creating, registering and retrieving Angular modules. All modules (angular core or 3rd party) that should be available to an application must be registered using this mechanism.</li>
+
+<li>An AngularJS module defines an application.</li>
+
+<li>The module is a container for the different parts of an application.</li>
+
+<li>The module is a container for the application controllers.</li>
+
+<li>Controllers always belong to a module.</li>
+
+<li>Global functions should be avoided in JavaScript. They can easily be overwritten or destroyed by other scripts.</li>
+
+<li>AngularJS modules reduces this problem, by keeping all functions local to the module.</li>
+
+<li>In its simplest form the module consists of a collection of two kinds of blocks:
+
+
+<ul>
+<li>Configuration blocks - get executed during the provider registrations and configuration phase. Only providers and constants can be injected into configuration blocks. This is to prevent accidental instantiation of services before they have been fully configured.</li>
+
+<li>Run blocks - get executed after the injector is created and are used to kickstart the application. Only instances and constants can be injected into run blocks. This is to prevent further system configuration during application run time.</li></ul>
+</li>
+</ul>
+
+<pre><code>angular.module('myModule', []).
+config(function(injectables) { // provider-injector
+  // This is an example of config block.
+  // You can have as many of these as you want.
+  // You can only inject Providers (not instances)
+  // into config blocks.
+}).
+run(function(injectables) { // instance-injector
+  // This is an example of a run block.
+  // You can have as many of these as you want.
+  // You can only inject instances (not Providers)
+  // into run blocks
+});
+</code></pre>
+
+<p>Configuration Blocks</p>
+
+<ul>
+<li>There are some convenience methods on the module which are equivalent to the config block. For example:</li>
+</ul>
+
+<pre><code>angular.module('myModule', []).
+  value('a', 123).
+  factory('a', function() { return 123; }).
+  directive('directiveName', ...).
+  filter('filterName', ...);
+
+// is same as
+
+
+angular.module('myModule', []).
+  config(function($provide, $compileProvider, $filterProvider) {
+    $provide.value('a', 123);
+    $provide.factory('a', function() { return 123; });
+    $compileProvider.directive('directiveName', ...);
+    $filterProvider.register('filterName', ...);
+  });
+</code></pre>
+
+<pre><code>angular.module(name, [requires], [configFn]);
+</code></pre>
+
+<pre><code>Param    Type    Details
+name    string
+The name of the module to create or retrieve.
+
+requires
+(optional)
+!Array.&lt;string&gt;=
+If specified then new module is being created. If unspecified then the module is being retrieved for further configuration.
+
+configFn
+(optional)
+Function=
+Optional configuration function for the module. Same as Module#config().
+</code></pre>
+
+<p>Adding a Controller</p>
+
+<ul>
+<li>Add a controller to your application, and refer to the controller with the ng-controller directive:</li>
+</ul>
+
+<pre><code>&lt;script&gt;
+
+var app = angular.module("myApp", []);
+
+app.controller("myCtrl", function($scope) {
+    $scope.firstName = "John";
+    $scope.lastName = "Doe";
+});
+
+&lt;/script&gt;
+</code></pre>
+
+<p>Adding a Directive</p>
+
+<ul>
+<li>AngularJS has a set of built-in directives which you can use to add functionality to your application.</li>
+
+<li>Custom directives are used in AngularJS to extend the functionality of HTML. Custom directives are defined using "directive" function. A custom directive simply replaces the element for which it is activated.</li>
+
+<li>In addition you can use the module to add your own directives to your applications:</li>
+</ul>
+
+<pre><code>app.directive("w3TestDirective", function() {
+    return {
+        template : "I was made in a directive constructor!"
+    };
+</code></pre>
+
+<pre><code>IN JS:
+    app.directive('student', function() {
+   //define the directive object
+   var directive = {};
+
+   //restrict = E, signifies that directive is Element directive
+   directive.restrict = 'E';
+
+   //template replaces the complete element with its text.
+   directive.template = "Student: &lt;b&gt;{{student.name}}&lt;/b&gt; , Roll No:     &lt;b&gt;{{student.rollno}}&lt;/b&gt;";
+
+   //scope is used to distinguish each student element based on criteria.
+   directive.scope = {
+      student : "=name"
+   }
+  return directive;
+});
+
+IN CONTROLLER:
+   $scope.Mahesh = {};
+   $scope.Mahesh.name = "Mahesh Parashar";
+   $scope.Mahesh.rollno  = 1;
+
+   $scope.Piyush = {};
+   $scope.Piyush.name = "Piyush Parashar";
+   $scope.Piyush.rollno  = 2;
+
+IN HTML:
+   &lt;student name = "Mahesh"&gt;&lt;/student&gt;&lt;br/&gt;
+    &lt;student name = "Piyush"&gt;&lt;/student&gt;
+</code></pre>
+
+<p>Modules and Controllers in Files</p>
+
+<ul>
+<li>It is common in AngularJS applications to put the module and the controllers in JavaScript files.</li>
+</ul>
+
+<pre><code>&lt;script src="myApp.js"&gt;&lt;/script&gt;
+&lt;script src="myCtrl.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<p>MODULE DEPENDENCIES:</p>
+
+<ul>
+<li>Modules can list other modules as their dependencies. Depending on a module implies that the required module needs to be loaded before the requiring module is loaded. In other words the configuration blocks of the required modules execute before the configuration blocks of the requiring module. The same is true for the run blocks. Each module can only be loaded once, even if multiple other modules require it.</li>
+</ul>
+
+<p>DEPENDENCY INJECTION:</p>
+
+<ul>
+<li>Dependency Injection (DI) is a software design pattern that deals with how components get hold of their dependencies.</li>
+
+<li>Dependency Injection is a software design pattern in which an object is given its dependencies, rather than the object creating them itself. </li>
+
+<li>The Angular injector subsystem is in charge of creating components, resolving their dependencies, and providing them to other components as requested.</li>
+
+<li>Angular leverages dependency injection all across the framework. It works with functions defined for controller, directive, service, factory, etc.</li>
+</ul>
+
+<pre><code>var app = angular.module("DemoApp", []);
+// Controller is injected with $scope and $http as dependencies
+app.controller("DemoController", function ($scope, $http) {
+    $http.get('https://api.github.com/users/angular/repos')
+        .success(function (repos) {
+        $scope.repos = repos
+    });
+</code></pre>
+
+<ul>
+<li>In the above example, the controller DemoController is injected with two dependencies: $scope and $http. The controller doesn’t know/care how these objects are created.</li>
+</ul>
+
+<h2 id="angularjsstandardservicestestsknowledgeoftheservicesincludedwithangularjsforurlmanagementandbackendcommunicationsuchasdresourcedhttpdlocationanddroute"># AngularJS Standard Services tests knowledge of the services included with AngularJS for URL management and back-end communication, such as $resource, $http, $location and $route.</h2>
+
+<p>$resource</p>
+
+<ul>
+<li>A factory which creates a resource object that lets you interact with RESTful server-side data sources.</li>
+
+<li>The returned resource object has action methods which provide high-level behaviors without the need to interact with the low level $http service.</li>
+
+<li>Requires the ngResource module to be installed.</li>
+</ul>
+
+<pre><code>.factory('UserService', function ($resource) {
+    return $resource('http://jsonplaceholder.typicode.com/users/:user',{user: "@user"});
+});
+</code></pre>
+
+<pre><code>app.config(['$resourceProvider', function($resourceProvider) {
+  // Don't strip trailing slashes from calculated URLs
+  $resourceProvider.defaults.stripTrailingSlashes = false;
+}]);
+</code></pre>
+
+<pre><code>$resource(url, [paramDefaults], [actions], options);
+</code></pre>
+
+<p>URL:</p>
+
+<pre><code>$resource('http://example.com/resource.json')
+</code></pre>
+
+<p>paramDefaults
+(optional)</p>
+
+<ul>
+<li>Default values for url parameters.</li>
+
+<li>Given a template /path/:verb and parameter {verb:'greet', salutation:'Hello'} results in URL /path/greet?salutation=Hello.</li>
+</ul>
+
+<p>actions
+(optional)</p>
+
+<ul>
+<li>Hash with declaration of custom actions that will be available in addition to the default set of resource actions (see below). If a custom action has the same key as a default action (e.g. save), then the default action will be overwritten, and not extended.</li>
+
+<li>The declaration should be created in the format of $http.config:</li>
+</ul>
+
+<pre><code>{action1: {method:?, params:?, isArray:?, headers:?, ...},
+ action2: {method:?, params:?, isArray:?, headers:?, ...},
+ ...}
+</code></pre>
+
+<p>Options</p>
+
+<ul>
+<li>Hash with custom settings that should extend the default $resourceProvider behavior. The supported options are:
+
+
+<ul>
+<li>stripTrailingSlashes – {boolean} – If true then the trailing slashes from any calculated URL will be stripped. (Defaults to true.)</li>
+
+<li>cancellable – {boolean} – If true, the request made by a "non-instance" call will be cancelled (if not already completed) by calling $cancelRequest() on the call's return value. This can be overwritten per action. (Defaults to false.) </li></ul>
+</li>
+</ul>
+
+<p>Returns</p>
+
+<ul>
+<li>A resource "class" object with methods for the default set of resource actions optionally extended with custom actions. The default set contains these actions:</li>
+</ul>
+
+<pre><code>{ 'get':    {method:'GET'},
+  'save':   {method:'POST'},
+  'query':  {method:'GET', isArray:true},
+  'remove': {method:'DELETE'},
+  'delete': {method:'DELETE'} };
+</code></pre>
+
+<pre><code>var User = $resource('/user/:userId', {userId:'@id'});
+var user = User.get({userId:123}, function() {
+  user.abc = true;
+  user.$save();
+});
+</code></pre>
+
+<p>$http</p>
+
+<ul>
+<li>The $http service is a core Angular service that facilitates communication with the remote HTTP servers via the browser's XMLHttpRequest object or via JSONP.</li>
+
+<li>The $http service is a function which takes a single argument — a configuration object — that is used to generate an HTTP request and returns a promise.</li>
+</ul>
+
+<pre><code>// Simple GET request example:
+$http({
+  method: 'GET',
+  url: '/someUrl'
+}).then(function successCallback(response) {
+    // this callback will be called asynchronously
+    // when the response is available
+  }, function errorCallback(response) {
+    // called asynchronously if an error occurs
+    // or server returns response with an error status.
+  });
+</code></pre>
+
+<pre><code>&lt;script&gt;
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope, $http) {
+    $http.get("welcome.htm")
+    .then(function(response) {
+        $scope.myWelcome = response.data;
+    });
+});
+&lt;/script&gt;
+</code></pre>
+
+<pre><code>function loadUsers() {
+  $http.get("http://jsonplaceholder.typicode.com/users").success(function(data) {
+    $scope.items = data;
+  });
+}
+
+loadUsers();
+</code></pre>
+
+<p>Shortcut methods</p>
+
+<ul>
+<li>Shortcut methods are also available. All shortcut methods require passing in the URL, and request data must be passed in for POST/PUT requests. An optional config can be passed as the last argument.</li>
+</ul>
+
+<pre><code>$http.get('/someUrl', config).then(successCallback, errorCallback);
+$http.post('/someUrl', data, config).then(successCallback, errorCallback);
+</code></pre>
+
+<p>Complete list of shortcut methods:</p>
+
+<ul>
+<li><p>$http.get</p></li>
+
+<li><p>$http.head</p></li>
+
+<li><p>$http.post</p></li>
+
+<li><p>$http.put</p></li>
+
+<li><p>$http.delete</p></li>
+
+<li><p>$http.jsonp</p></li>
+
+<li><p>$http.patch  </p>
+
+<pre><code>$http(config);
+</code></pre>
+
+<p>Methods</p></li>
+</ul>
+
+<pre><code class="  language- "> get(url, [config]);
+ delete(url, [config]);
+ head(url, [config]);
+ post(url, data, [config]);
+ put(url, data, [config]);
+
+ patch(url, data, [config]);
+</code></pre>
+
+<p>$location</p>
+
+<ul>
+<li>The $location service parses the URL in the browser address bar (based on the window.location) and makes the URL available to your application.</li>
+
+<li>Changes to the URL in the address bar are reflected into $location service and changes to $location are reflected into the browser address bar.</li>
+</ul>
+
+<p>Methods</p>
+
+<ul>
+<li>absUrl();</li>
+</ul>
+
+<pre><code>var absUrl = $location.absUrl();
+</code></pre>
+
+<ul>
+<li>url([url]);</li>
+</ul>
+
+<pre><code>var url = $location.url();
+</code></pre>
+
+<ul>
+<li>here are two configuration modes that you can use: the Hashbang mode and the HTML5 mode.</li>
+</ul>
+
+<pre><code>$locationProvider.html5Mode(true).hashPrefix('*');
+</code></pre>
+
+<p>$route</p>
+
+<ul>
+<li>$route is used for deep-linking URLs to controllers and views (HTML partials). It watches $location.url() and tries to map the path to an existing route definition.</li>
+
+<li>Requires the ngRoute module to be installed.</li>
+
+<li>AngularJS routes enable you to create different URLs for different content in your application. Having different URLs for different content enables the user to bookmark URLs to specific content, and send those URLs to friends etc.</li>
+
+<li>AngularJS routes enables you to show different content depending on what route is chosen. A route is specified in the URL after the # sign. Thus, the following URL's all point to the same AngularJS application, but each point to different routes:</li>
+</ul>
+
+<pre><code>    http://myangularjsapp.com/index.html#books
+    http://myangularjsapp.com/index.html#albums
+    http://myangularjsapp.com/index.html#games
+    http://myangularjsapp.com/index.html#apps
+</code></pre>
+
+<ul>
+<li>When the browser loads these links, the same AngularJS application will be loaded (located at http://myangularjsapp.com/index.html), but AngularJS will look at the route (the part of the URL after the #) and decide what HTML template to show.</li>
+</ul>
+
+<pre><code>&lt;script&gt;
+    var module = angular.module("sampleApp", ['ngRoute']);
+
+    module.config(['$routeProvider',
+        function($routeProvider) {
+            $routeProvider.
+                when('/route1', {
+                    templateUrl: 'angular-route-template-1.jsp',
+                    controller: 'RouteController'
+                }).
+                when('/route2', {
+                    templateUrl: 'angular-route-template-2.jsp',
+                    controller: 'RouteController'
+                }).
+                otherwise({
+                    redirectTo: '/'
+                });
+        }]);
+
+    module.controller("RouteController", function($scope) {
+
+    })
+&lt;/script&gt;
+</code></pre>
+
+<p>Including the AngularJS Route Module</p>
+
+<ul>
+<li>The first thing to notice in the example application above is the extra JavaScript included inside the head section:</li>
+</ul>
+
+<pre><code>&lt;script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular-route.min.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<p>Declaring a Dependency on the AngularJS Route Module</p>
+
+<ul>
+<li>The second thing to notice is that the applications's AngularJS module (called sampleApp) declares a dependency on the AngularJS route module:</li>
+</ul>
+
+<pre><code>var module = angular.module("sampleApp", ['ngRoute']);
+</code></pre>
+
+<p>The ngView Directive</p>
+
+<ul>
+<li>The third thing to notice in the example above is the use of the ngView directive:</li>
+</ul>
+
+<pre><code>&lt;div ng-view&gt;&lt;/div&gt;
+</code></pre>
+
+<ul>
+<li>Inside the div with the ngView directive (can also be written ng-view) the HTML template specific to the given route will be displayed.</li>
+</ul>
+
+<p>Links to Routes</p>
+
+<ul>
+<li>The final thing to notice in this example is the two links in the HTML page:</li>
+</ul>
+
+<pre><code>&lt;a href="#/route1"&gt;Route 1&lt;/a&gt;&lt;br/&gt;
+&lt;a href="#/route2"&gt;Route 2&lt;/a&gt;&lt;br/&gt;
+</code></pre>
+
+<p>METHODS</p>
+
+<ul>
+<li>reload();
+
+
+<ul>
+<li>Causes $route service to reload the current route even if $location hasn't changed.</li></ul>
+</li>
+</ul>
+
+<p>updateParams(newParams);</p>
+
+<ul>
+<li>Causes $route service to update the current URL, replacing current route parameters with those specified in newParams. Provided property names that match the route's path segment definitions will be interpolated into the location's path, while remaining properties will be treated as query params.</li>
+</ul>
+
+<p>Parameters</p>
+
+<p>Param    Type    Details</p>
+
+<pre><code>newParams    !Object&lt;string, string&gt;
+mapping of URL parameter names to values
+</code></pre>
+
+<p>EVENTS</p>
+
+<ul>
+<li>$routeChangeStart
+
+
+<ul>
+<li>Broadcasted before a route change. At this point the route services starts resolving all of the dependencies needed for the route change to occur. </li></ul>
+</li>
+</ul>
+
+<h2 id="controllersandscopesassessesunderstandingofthescopeelementthedrootscopeelementdscopemethodsrelationbetweenscopesandthecontrollerelementdeclarationofcontrollersbindingcontrollerstoscopesinangularjs"># Controllers and Scopes assesses understanding of the scope element (the $rootScope element, $scope methods, relation between scopes) and the controller element (declaration of controllers, binding controllers to scopes) in AngularJS.</h2>
+
+<p>CONTROLLERS</p>
+
+<ul>
+<li>AngularJS controllers control the data of AngularJS applications.</li>
+
+<li>AngularJS controllers are regular JavaScript Objects.</li>
+</ul>
+
+<pre><code>&lt;script&gt;
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.firstName = "John";
+    $scope.lastName = "Doe";
+});
+&lt;/script&gt;
+</code></pre>
+
+<p>Controller Methods</p>
+
+<ul>
+<li>A controller can also have methods (variables as functions):</li>
+</ul>
+
+<pre><code>Full Name: {{fullName()}}
+
+$scope.fullName = function() {
+        return $scope.firstName + " " + $scope.lastName;
+    };
+</code></pre>
+
+<p>Scope</p>
+
+<ul>
+<li>The scope is the binding part between the HTML (view) and the JavaScript (controller).</li>
+</ul>
+
+<p>$rootScope</p>
+
+<ul>
+<li>Every application has a single root scope. All other scopes are descendant scopes of the root scope.</li>
+
+<li>All applications have a $rootScope which is the scope created on the HTML element that contains the ng-app directive.</li>
+
+<li>The rootScope is available in the entire application.</li>
+
+<li>Attaching variables to the rootscope means not having to use ng-controller for a specific controller's scope. This scope is global.</li>
+</ul>
+
+<pre><code>app.run(function($rootScope) {
+    $rootScope.color = 'blue';
+});
+</code></pre>
+
+<ul>
+<li>If a variable has the same name in both the current scope and in the rootScope, the application use the one in the current scope.</li>
+</ul>
+
+<p>angular.element</p>
+
+<ul>
+<li>Wraps a raw DOM element or HTML string as a jQuery element. </li>
+</ul>
+
+<p>Declarations of Controller:</p>
+
+<pre><code>&lt;div ng-controller="GreetingController"&gt;
+  {{ greeting }}
+&lt;/div&gt;
+</code></pre>
+
+<pre><code>var myApp = angular.module('myApp',[]);
+
+myApp.controller('GreetingController', ['$scope', function($scope) {
+  $scope.greeting = 'Hola!';
+}]);
+</code></pre>
+
+<h2 id="creatingcustomdirectivesandfiltersdeterminesknowledgeofcommonoptionsinangularjstodefinecustomdirectivesandfiltersandhowtousethemevaluatesknowledgeofconceptsaboutcustomdirectivestransclusiondefinitionandbindingofparametersinangularjs"># Creating Custom Directives and Filters determines knowledge of common options in AngularJS to define custom directives and filters and how to use them. Evaluates knowledge of concepts about custom directives: transclusion, definition and binding of parameters in AngularJS.</h2>
+
+<p>CUSTOM DIRECTIVES</p>
+
+<ul>
+<li>Custom directives are used in AngularJS to extend the functionality of HTML. </li>
+</ul>
+
+<p>Define custom html tags.</p>
+
+<pre><code>&lt;student name = "Mahesh"&gt;&lt;/student&gt;&lt;br/&gt;
+&lt;student name = "Piyush"&gt;&lt;/student&gt;
+</code></pre>
+
+<p>Define custom directive to handle above custom html tags.</p>
+
+<pre><code>mainApp.directive('student', function() {
+   //define the directive object
+   var directive = {};
+
+   //restrict = E, signifies that directive is Element directive
+   directive.restrict = 'E';
+
+   //template replaces the complete element with its text.
+   directive.template = "Student: &lt;b&gt;{{student.name}}&lt;/b&gt; , Roll No: &lt;b&gt;{{student.rollno}}&lt;/b&gt;";
+
+   //scope is used to distinguish each student element based on criteria.
+   directive.scope = {
+      student : "=name"
+   }
+   return directive;
+</code></pre>
+
+<p>Define controller to update the scope for directive. </p>
+
+<p>Here we are using name attribute's value as scope's child.</p>
+
+<pre><code>mainApp.controller('StudentController', function($scope) {
+   $scope.Mahesh = {};
+   $scope.Mahesh.name = "Mahesh Parashar";
+   $scope.Mahesh.rollno  = 1;
+
+   $scope.Piyush = {};
+   $scope.Piyush.name = "Piyush Parashar";
+   $scope.Piyush.rollno  = 2;
+});
+</code></pre>
+
+<pre><code>&lt;div ng-app = "mainApp" ng-controller = "StudentController"&gt;
+         &lt;student name = "Mahesh"&gt;&lt;/student&gt;&lt;br/&gt;
+         &lt;student name = "Piyush"&gt;&lt;/student&gt;
+      &lt;/div&gt;
+</code></pre>
+
+<p>CUSTOM FILTER</p>
+
+<pre><code>app.filter('startsWithA', function () {
+  return function (items) {
+    var filtered = [];
+    for (var i = 0; i &lt; items.length; i++) {
+      var item = items[i];
+      if (/a/i.test(item.name.substring(0, 1))) {
+        filtered.push(item);
+      }
+    }
+    return filtered;
+  };
+});
+</code></pre>
+
+<p>Then require the filter in the module's dependancies.</p>
+
+<pre><code>&lt;ul&gt;
+  &lt;li ng-repeat="friend in person.friends | startsWithA"&gt;
+    {{ friend }}
+  &lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+<p>TRANSCLUSION</p>
+
+<ul>
+<li>The basic use case for transclusion is straightforward: You want to include some content from one template to another.</li>
+
+<li>What we would like to do is what we would naturally do if &lt; my-directive > was any regular HTML tag: Just nest the content as HTML inside it. This is what transclusion is for. </li>
+
+<li>If we enable it by configuring transclude: true on the myCard directive, what happens is that Angular grabs the original contents of the &lt; my-directive > element and makes them available for us to attach somewhere in our template.</li>
+</ul>
+
+<pre><code>&lt;div my-directive&gt;
+    &lt;button&gt;some button&lt;/button&gt;
+    &lt;a href="#"&gt;and a link&lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>will result in this render:</p>
+
+<pre><code>&lt;div class="something"&gt; This is my directive content&lt;/div&gt;
+</code></pre>
+
+<p>Notice that the content of your original element &lt; div my-directive > will be lost (or better said, replaced). So, say good-bye to these buddies:</p>
+
+<pre><code>&lt;button&gt;some button&lt;/button&gt;
+&lt;a href="#"&gt;and a link&lt;/a&gt;
+</code></pre>
+
+<ul>
+<li>So, what if you want to keep your &lt; button >... and &lt; a href >... in the DOM? You'll need something called transclusion. </li>
+</ul>
+
+<pre><code>app.directive('myDirective', function(){
+    return{
+        transclude: true,
+        template: '&lt;div class="something" ng-transclude&gt; This is my directive content&lt;/div&gt;'
+    }
+});
+</code></pre>
+
+<p>This would render:</p>
+
+<pre><code>&lt;div class="something"&gt; This is my directive content
+    &lt;button&gt;some button&lt;/button&gt;
+    &lt;a href="#"&gt;and a link&lt;/a&gt;
+&lt;/div&gt;.
+</code></pre>
+
+<h2 id="formsmanagementevaluatesproficiencyinangularjsdirectivesusedtomanageformsandinputelementshowtocheckthevalidstateoftheformandtheinputelementsandhowtoexpandthebehavioroftheinputelements"># Forms Management evaluates proficiency in AngularJS directives used to manage forms and input elements: how to check the valid state of the form and the input elements, and how to expand the behavior of the input elements.</h2>
+
+<p>Simple form</p>
+
+<ul>
+<li>The key directive in understanding two-way data-binding is ngModel. </li>
+
+<li>The ngModel directive provides the two-way data-binding by synchronizing the model to the view, as well as view to the model. </li>
+</ul>
+
+<pre><code>  &lt;form novalidate class="simple-form"&gt;
+    Name: &lt;input type="text" ng-model="user.name" /&gt;&lt;br /&gt;
+    E-mail: &lt;input type="email" ng-model="user.email" /&gt;&lt;br /&gt;
+    Gender: &lt;input type="radio" ng-model="user.gender" value="male" /&gt;male
+    &lt;input type="radio" ng-model="user.gender" value="female" /&gt;female&lt;br /&gt;
+    &lt;input type="button" ng-click="reset()" value="Reset" /&gt;
+    &lt;input type="submit" ng-click="update(user)" value="Save" /&gt;
+  &lt;/form&gt;
+  &lt;pre&gt;user = {{user | json}}&lt;/pre&gt;
+  &lt;pre&gt;master = {{master | json}}&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+  angular.module('formExample', [])
+    .controller('ExampleController', ['$scope', function($scope) {
+      $scope.master = {};
+
+      $scope.update = function(user) {
+        $scope.master = angular.copy(user);
+      };
+
+      $scope.reset = function() {
+        $scope.user = angular.copy($scope.master);
+      };
+
+      $scope.reset();
+    }]);
+&lt;/script&gt;
+</code></pre>
+
+<ul>
+<li>Note that novalidate is used to disable browser's native form validation.</li>
+
+<li>The value of ngModel won't be set unless it passes validation for the input field. For example: inputs of type email must have a value in the form of user@domain.</li>
+</ul>
+
+<p>Binding to form and control state</p>
+
+<ul>
+<li>A form is an instance of FormController. The form instance can optionally be published into the scope using the name attribute.</li>
+
+<li>Note: Only form elements with a name attribute will have their values passed when submitting a form.</li>
+
+<li>Similarly, an input control that has the ngModel directive holds an instance of NgModelController. Such a control instance can be published as a property of the form instance using the name attribute on the input control. The name attribute specifies the name of the property on the form instance.</li>
+
+<li>This implies that the internal state of both the form and the control is available for binding in the view using the standard binding primitives.</li>
+</ul>
+
+<p>Custom Validation</p>
+
+<ul>
+<li>With a custom directive, you can add your own validation functions to the $validators object on the ngModelController.</li>
+
+<li>Each function in the $validators object receives the modelValue and the viewValue as parameters. Angular will then call $setValidity internally with the function's return value (true: valid, false: invalid).</li>
+
+<li>An 'integer' directive that validates whether the input is a valid integer. For example, 1.23 is an invalid value, since it contains a fraction.</li>
+
+<li>A username directive that asynchronously checks if a user-entered value is already taken. </li>
+</ul>
+
+<pre><code>&lt;form name="form" class="css-form" novalidate&gt;
+  &lt;div&gt;
+    Size (integer 0 - 10):
+    &lt;input type="number" ng-model="size" name="size"
+           min="0" max="10" integer /&gt;{{size}}&lt;br /&gt;
+    &lt;span ng-show="form.size.$error.integer"&gt;The value is not a valid integer!&lt;/span&gt;
+    &lt;span ng-show="form.size.$error.min || form.size.$error.max"&gt;
+      The value must be in range 0 to 10!&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    Username:
+    &lt;input type="text" ng-model="name" name="name" username /&gt;{{name}}&lt;br /&gt;
+    &lt;span ng-show="form.name.$pending.username"&gt;Checking if this name is available...&lt;/span&gt;
+    &lt;span ng-show="form.name.$error.username"&gt;This username is already taken!&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/form&gt;
+</code></pre>
+
+<p>Checkbox</p>
+
+<ul>
+<li>A checkbox has the value true or false. Apply the ng-model directive to a checkbox, and use its value in your application.</li>
+</ul>
+
+<pre><code> &lt;form&gt;
+    Check to show a header:
+    &lt;input type="checkbox" ng-model="myVar"&gt;
+&lt;/form&gt;
+
+&lt;h1 ng-show="myVar"&gt;My Header&lt;/h1&gt;
+</code></pre>
+
+<p>Radiobuttons</p>
+
+<ul>
+<li>Bind radio buttons to your application with the ng-model directive.</li>
+
+<li>Radio buttons with the same ng-model can have different values, but only the selected one will be used.</li>
+</ul>
+
+<pre><code> &lt;form&gt;
+Pick a topic:
+&lt;input type="radio" ng-model="myVar" value="dogs"&gt;Dogs
+&lt;input type="radio" ng-model="myVar" value="tuts"&gt;Tutorials
+&lt;input type="radio" ng-model="myVar" value="cars"&gt;Cars
+&lt;/form&gt;
+</code></pre>
+
+<p>Selectbox</p>
+
+<ul>
+<li>Bind select boxes to your application with the ng-model directive.</li>
+
+<li>The property defined in the ng-model attribute will have the value of the selected option in the selectbox.</li>
+</ul>
+
+<pre><code>&lt;form&gt;
+Select a topic:
+&lt;select ng-model="myVar"&gt;
+    &lt;option value=""&gt;
+    &lt;option value="dogs"&gt;Dogs
+    &lt;option value="tuts"&gt;Tutorials
+    &lt;option value="cars"&gt;Cars
+&lt;/select&gt;
+&lt;/form&gt;
+</code></pre>
+
+<p>INPUT</p>
+
+<pre><code>&lt;input
+  ng-model="string"
+  [name="string"]
+  [required="string"]
+  [ng-required="boolean"]
+  [ng-minlength="number"]
+  [ng-maxlength="number"]
+  [ng-pattern="string"]
+  [ng-change="string"]
+  [ng-trim="boolean"]&gt;
+...
+&lt;/input&gt;
+</code></pre>
+
+<p>Arguments</p>
+
+<ul>
+<li>ngModel    string <br />
+
+
+<ul>
+<li>Assignable angular expression to data-bind to.</li></ul>
+</li>
+
+<li>name (optional) string <br />
+
+
+<ul>
+<li>Property name of the form under which the control is published.</li></ul>
+</li>
+
+<li>required (optional) string <br />
+
+
+<ul>
+<li>Sets required validation error key if the value is not entered.</li></ul>
+</li>
+
+<li>ngRequired (optional) boolean <br />
+
+
+<ul>
+<li>Sets required attribute if set to true</li></ul>
+</li>
+
+<li>ngMinlength (optional) number <br />
+
+
+<ul>
+<li>Sets minlength validation error key if the value is shorter than minlength.</li></ul>
+</li>
+
+<li>ngMaxlength (optional) number <br />
+
+
+<ul>
+<li>Sets maxlength validation error key if the value is longer than maxlength. Setting the attribute to a negative or non-numeric value, allows view values of any length.</li></ul>
+</li>
+
+<li>ngPattern (optional) string <br />
+
+
+<ul>
+<li>Sets pattern validation error key if the ngModel $viewValue value does not match a RegExp found by evaluating the Angular expression given in the attribute value. If the expression evaluates to a RegExp object, then this is used directly. If the expression evaluates to a string, then it will be converted to a RegExp after wrapping it in ^ and $ characters. For instance, "abc" will be converted to new RegExp('^abc$').
+Note: Avoid using the g flag on the RegExp, as it will cause each successive search to start at the index of the last search's match, thus not taking the whole input value into account.</li></ul>
+</li>
+
+<li>ngChange (optional) string <br />
+
+
+<ul>
+<li>Angular expression to be executed when input changes due to user interaction with the input element.</li></ul>
+</li>
+
+<li>ngTrim (optional) boolean <br />
+
+
+<ul>
+<li>If set to false Angular will not automatically trim the input. This parameter is ignored for input[type=password] controls, which will never trim the input.</li></ul>
+</li>
+</ul>
+
+<pre><code>&lt;script&gt;
+   angular.module('inputExample', [])
+     .controller('ExampleController', ['$scope', function($scope) {
+       $scope.user = {name: 'guest', last: 'visitor'};
+     }]);
+&lt;/script&gt;
+&lt;div ng-controller="ExampleController"&gt;
+  &lt;form name="myForm"&gt;
+    &lt;label&gt;
+       User name:
+       &lt;input type="text" name="userName" ng-model="user.name" required&gt;
+    &lt;/label&gt;
+    &lt;div role="alert"&gt;
+      &lt;span class="error" ng-show="myForm.userName.$error.required"&gt;
+       Required!&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;label&gt;
+       Last name:
+       &lt;input type="text" name="lastName" ng-model="user.last"
+       ng-minlength="3" ng-maxlength="10"&gt;
+    &lt;/label&gt;
+    &lt;div role="alert"&gt;
+      &lt;span class="error" ng-show="myForm.lastName.$error.minlength"&gt;
+        Too short!&lt;/span&gt;
+      &lt;span class="error" ng-show="myForm.lastName.$error.maxlength"&gt;
+        Too long!&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/form&gt;
+  &lt;hr&gt;
+  &lt;tt&gt;user = {{user}}&lt;/tt&gt;&lt;br/&gt;
+  &lt;tt&gt;myForm.userName.$valid = {{myForm.userName.$valid}}&lt;/tt&gt;&lt;br/&gt;
+  &lt;tt&gt;myForm.userName.$error = {{myForm.userName.$error}}&lt;/tt&gt;&lt;br/&gt;
+  &lt;tt&gt;myForm.lastName.$valid = {{myForm.lastName.$valid}}&lt;/tt&gt;&lt;br/&gt;
+  &lt;tt&gt;myForm.lastName.$error = {{myForm.lastName.$error}}&lt;/tt&gt;&lt;br/&gt;
+  &lt;tt&gt;myForm.$valid = {{myForm.$valid}}&lt;/tt&gt;&lt;br/&gt;
+  &lt;tt&gt;myForm.$error.required = {{!!myForm.$error.required}}&lt;/tt&gt;&lt;br/&gt;
+  &lt;tt&gt;myForm.$error.minlength = {{!!myForm.$error.minlength}}&lt;/tt&gt;&lt;br/&gt;
+  &lt;tt&gt;myForm.$error.maxlength = {{!!myForm.$error.maxlength}}&lt;/tt&gt;&lt;br/&gt;
+&lt;/div&gt;
+
+
+User name:  guest
+Last name:  visitor
+user = {"name":"guest","last":"visitor"}
+myForm.userName.$valid = true
+myForm.userName.$error = {}
+myForm.lastName.$valid = true
+myForm.lastName.$error = {}
+myForm.$valid = true
+myForm.$error.required = false
+myForm.$error.minlength = false
+myForm.$error.maxlength = false
+</code></pre>
+
+<p>Required</p>
+
+<ul>
+<li>Use the HTML5 attribute required to specify that the input field must be filled out:</li>
+</ul>
+
+<pre><code>&lt;form name="myForm"&gt;
+&lt;input name="myInput" ng-model="myInput" required&gt;
+&lt;/form&gt;
+
+&lt;p&gt;The input's valid state is:&lt;/p&gt;
+&lt;h1&gt;{{myForm.myInput.$valid}}&lt;/h1&gt;
+</code></pre>
+
+<p>E-mail</p>
+
+<ul>
+<li>Use the HTML5 type email to specify that the value must be an e-mail:</li>
+</ul>
+
+<pre><code>&lt;form name="myForm"&gt;
+&lt;input name="myInput" ng-model="myInput" type="email"&gt;
+&lt;/form&gt;
+
+&lt;p&gt;The input's valid state is:&lt;/p&gt;
+&lt;h1&gt;{{myForm.myInput.$valid}}&lt;/h1&gt;
+</code></pre>
+
+<p>Form State and Input State</p>
+
+<ul>
+<li>AngularJS is constantly updating the state of both the form and the input fields.</li>
+
+<li>Input fields have the following states:
+
+
+<ul>
+<li>$untouched The field has not been touched yet</li>
+
+<li>$touched The field has been touched</li>
+
+<li>$pristine The field has not been modified yet</li>
+
+<li>$dirty The field has been modified</li>
+
+<li>$invalid The field content is not valid</li>
+
+<li>$valid The field content is valid</li></ul>
+</li>
+
+<li>They are all properties of the input field, and are either true or false.</li>
+</ul>
+
+<p>CSS Classes</p>
+
+<ul>
+<li><p>AngularJS adds CSS classes to forms and input fields depending on their states.</p></li>
+
+<li><p>The following classes are added to, or removed from, input fields:</p>
+
+<ul>
+<li>ng-untouched The field has not been touched yet</li>
+
+<li>ng-touched The field has been touched</li>
+
+<li>ng-pristine The field has not been  modified yet</li>
+
+<li>ng-dirty The field has been modified</li>
+
+<li>ng-valid The field content is valid</li>
+
+<li>ng-invalid The field content is not valid</li>
+
+<li>ng-valid-key One key for each validation. Example: ng-valid-required, useful when there are more than one thing that must be validated</li>
+
+<li>ng-invalid-key Example: ng-invalid-required</li></ul></li>
+
+<li><p>The following classes are added to, or removed from, forms:</p>
+
+<p><ul>
+<li>ng-pristine No fields has not been modified yet</li></p>
+
+<p><li>ng-dirty One or more fields has been modified</li></p>
+
+<p><li>ng-valid The form content is valid</li></p>
+
+<p><li>ng-invalid The form content is not valid</li></p>
+
+<p><li>ng-valid-key One key for each validation. Example: ng-valid-required, useful when there are more than one thing that must be validated</li></p>
+
+<p><li>ng-invalid-key Example: ng-invalid-required</li></ul>
+
+<p></p></li></p>
+
+<p><li><p>The classes are removed if the value they represent is false.</p></li>
+</ul></p>
+
+<pre><code>&lt;style&gt;
+input.ng-invalid {
+    background-color: pink;
+}
+input.ng-valid {
+    background-color: lightgreen;
+}
+&lt;/style&gt;
+</code></pre>
+
+<h1 id="standarddirectivesandfiltersevaluatesknowledgeofthedirectivesngclassngifngbindngrepeatngswitchandfiltersngfilterngorderngcurrencyincludedincoreangularjs">Standard Directives and Filters evaluates knowledge of the directives (ng-class, ng-if, ng-bind, ng-repeat, ng-switch) and filters (ng-filter, ng-order, ng-currency) included in core AngularJS.</h1>
+
+<p>ng-class</p>
+
+<ul>
+<li>The ngClass directive allows you to dynamically set CSS classes on an HTML element by databinding an expression that represents all classes to be added.</li>
+
+<li>The ng-class directive dynamically binds one or more CSS classes to an HTML element.</li>
+
+<li>he value of the ng-class directive can be a string, an object, or an array.</li>
+
+<li>If it is a string, it should contain one or more, space-separated class names.</li>
+
+<li>As an object, it should contain key-value pairs, where the key is the class name of the class you want to add, and the value is a boolean value. The class will only be added if the value is set to true.</li>
+
+<li>As an array, it can be a combination of both. Each array element can be either a string, or an object, described as above.</li>
+</ul>
+
+<pre><code>&lt;element ng-class="expression"&gt;&lt;/element&gt;
+</code></pre>
+
+<ul>
+<li>expression    An expression that returns one or more class names.</li>
+</ul>
+
+<pre><code>&lt;div ng-class="[styleOne, styleTwo]"&gt;Look! I'm Words!&lt;/div&gt;
+</code></pre>
+
+<p>ng-if</p>
+
+<ul>
+<li>The ng-if directive removes the HTML element if the expression evaluates to false.</li>
+
+<li>If the if statement evaluates to true, a copy of the Element is added in the DOM.</li>
+
+<li>The ng-if directive is different from the ng-hide, which hides the display of the element, where the ng-if directive completely removes the element from the DOM.</li>
+
+<li>Uncheck a checkbox to remove a section:</li>
+</ul>
+
+<pre><code>Keep HTML: &lt;input type="checkbox" ng-model="myVar" ng-init="myVar = true"&gt;
+&lt;div ng-if="myVar"&gt;
+&lt;h1&gt;Welcome&lt;/h1&gt;
+&lt;p&gt;Welcome to my home.&lt;/p&gt;
+&lt;hr&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>ng-bind</p>
+
+<ul>
+<li>The ngBind attribute tells Angular to replace the text content of the specified HTML element with the value of a given expression, and to update the text content when the value of that expression changes.</li>
+
+<li>Typically, you don't use ngBind directly, but instead you use the double curly markup like {{ expression }} which is similar but less verbose.</li>
+</ul>
+
+<pre><code>&lt;script&gt;
+  angular.module('bindExample', [])
+    .controller('ExampleController', ['$scope', function($scope) {
+      $scope.name = 'Whirled';
+    }]);
+&lt;/script&gt;
+&lt;div ng-controller="ExampleController"&gt;
+  &lt;label&gt;Enter name: &lt;input type="text" ng-model="name"&gt;&lt;/label&gt;&lt;br&gt;
+  Hello &lt;span ng-bind="name"&gt;&lt;/span&gt;!
+&lt;/div&gt;
+</code></pre>
+
+<p>ng-repeat</p>
+
+<ul>
+<li>The ng-repeat directive repeats a set of HTML, a given number of times.</li>
+
+<li>The set of HTML will be repeated once per item in a collection.</li>
+
+<li>The collection must be an array or an object.</li>
+</ul>
+
+<pre><code>controller="myCtrl"&gt;
+&lt;h1 ng-repeat="x in records"&gt;{{x}}&lt;/h1&gt;
+
+&lt;script&gt;
+var app = angular.module("myApp", []);
+app.controller("myCtrl", function($scope) {
+    $scope.records = [
+        "Alfreds Futterkiste",
+        "Berglunds snabbköp",
+        "Centro comercial Moctezuma",
+        "Ernst Handel",
+    ]
+});
+&lt;/script&gt;
+</code></pre>
+
+<p>ng-switch</p>
+
+<ul>
+<li>Show a section of HTML, only if it matches a certain value:</li>
+
+<li>Child elements with the ng-switch-when directive will be displayed if it gets a match, otherwise the element, and its children will be removed.</li>
+
+<li>You can also define a default section, by using the ng-switch-default directive, to show a section if non of the other sections get a match.</li>
+</ul>
+
+<pre><code>&lt;div ng-switch="myVar"&gt;
+  &lt;div ng-switch-when="dogs"&gt;
+    &lt;h1&gt;Dogs&lt;/h1&gt;
+    &lt;p&gt;Welcome to a world of dogs.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div ng-switch-when="tuts"&gt;
+    &lt;h1&gt;Tutorials&lt;/h1&gt;
+    &lt;p&gt;Learn from examples.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div ng-switch-when="cars"&gt;
+    &lt;h1&gt;Cars&lt;/h1&gt;
+    &lt;p&gt;Read about cars.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div ng-switch-default&gt;
+    &lt;h1&gt;Switch&lt;/h1&gt;
+    &lt;p&gt;Select topic from the dropdown, to switch the content of this DIV.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>ng-filter</p>
+
+<ul>
+<li>Filters are used for formatting data displayed to the user.</li>
+</ul>
+
+<pre><code>{{ expression [| filter_name[:parameter_value] ... ] }}
+</code></pre>
+
+<pre><code>$filter(name);
+</code></pre>
+
+<ul>
+<li>name    String <br />
+
+
+<ul>
+<li>Name of the filter function to retrieve</li></ul>
+</li>
+</ul>
+
+<pre><code>&lt;div ng-controller="MainCtrl"&gt;
+ &lt;h3&gt;{{ originalText }}&lt;/h3&gt;
+ &lt;h3&gt;{{ filteredText }}&lt;/h3&gt;
+&lt;/div&gt;
+
+angular.module('filterExample', [])
+.controller('MainCtrl', function($scope, $filter) {
+  $scope.originalText = 'hello';
+  $scope.filteredText = $filter('uppercase')($scope.originalText);
+});
+</code></pre>
+
+<p>ng-orderBy</p>
+
+<ul>
+<li>The orderBy filter allows us to sort an array.</li>
+
+<li>By default, strings are sorted alphabetically, and numbers are sorted numerically.</li>
+</ul>
+
+<pre><code>{{ array | orderBy : expression : reverse }}
+</code></pre>
+
+<ul>
+<li>expression <br />
+
+
+<ul>
+<li>The expression used to determine the order. The expression can be of type:</li>
+
+<li>String: If the array is an array of objects, you can sort the array by the value of one of the object properties. See the examples below.</li>
+
+<li>Function: You can create a function to organize the sorting.</li>
+
+<li>Array: Use an array if you need more than one object property to determine the sorting order. The array items can be both strings and functions.</li></ul>
+</li>
+
+<li>reverse <br />
+
+
+<ul>
+<li>Optional. Set to true if you want to reverse the order of the array.</li></ul>
+</li>
+</ul>
+
+<pre><code>&lt;ul&gt;
+&lt;li ng-repeat="x in customers | orderBy : 'city'"&gt;{{x.name + ", " + x.city}}&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+<p>Descending Order:</p>
+
+<pre><code>&lt;ul&gt;
+&lt;li ng-repeat="x in customers | orderBy : '-city'"&gt;{{x.name + ", " + x.city}}&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+<p>ng-currency</p>
+
+<pre><code>{{ currency_expression | currency : symbol : fractionSize}}
+</code></pre>
+
+<ul>
+<li>symbol (optional) string <br />
+
+
+<ul>
+<li>Currency symbol or identifier to be displayed.</li></ul>
+</li>
+
+<li>fractionSize (optional) number <br />
+
+
+<ul>
+<li>Number of decimal places to round the amount to, defaults to default max fraction size for current locale</li></ul>
+</li>
+</ul>
+
+<p><code>
+&lt;span id="currency-default"&gt;{{amount | currency}}&lt;/span&gt;&lt;br&gt;
+  custom currency identifier (USD$): &lt;span id="currency-custom"&gt;{{amount | currency:"USD$"}}&lt;/span&gt;&lt;br&gt;
+  no fractions (0): &lt;span id="currency-no-fractions"&gt;{{amount | currency:"USD$":0}}&lt;/span&gt;
+</code></p>
+
+
