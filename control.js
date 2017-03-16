@@ -35,13 +35,16 @@ app.controller('myCtrl', ['$scope', function($scope) {
             "link" : "ajax.html"
         },{
             "name" : "Animation JS and CSS",
-            "link" : "JS-animation.html"
+            "link" : "Animation.html"
         },{
             "name" : "CDNs",
             "link" : "CDN.html"
         },{
             "name" : "REACT",
             "link" : "react.html"
+        },{
+            "name" : "DESIGN",
+            "link" : "design.html"
         }
     ]
 
