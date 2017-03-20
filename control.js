@@ -45,6 +45,9 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
             "name" : "DESIGN",
             "link" : "design.html"
+        },{
+            "name" : "GIT",
+            "link" : "git.html"
         }
     ]
 
