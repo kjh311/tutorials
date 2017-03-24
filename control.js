@@ -49,7 +49,7 @@ app.controller('myCtrl', ['$scope', function($scope) {
             "name" : "GIT",
             "link" : "git.html"
         },{
-            "name" : "Wordpress Theme",
+            "name" : "Wordpress Theme Development",
             "link" : "wordpress.html"
         }
     ]
