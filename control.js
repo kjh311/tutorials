@@ -51,6 +51,9 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
             "name" : "Wordpress Theme Development",
             "link" : "wordpress.html"
+        },{
+            "name" : "MongoDB",
+            "link" : "MongoDB.html"
         }
     ]
 
