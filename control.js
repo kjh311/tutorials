@@ -54,7 +54,8 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
             "name" : "MongoDB",
             "link" : "MongoDB.html"
-        }   "name" : "Backing up Macbook After a crash",
+        },{
+           "name" : "Backing up Macbook After a crash",
             "link" : "backing-up-macbook.html"
         }
     ]
