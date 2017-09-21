@@ -1,5 +1,7 @@
 var app = angular.module('myApp',[]);
 
+
+
 // MY CONTROLLER
 app.controller('myCtrl', ['$scope', function($scope) {
 
@@ -57,6 +59,9 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
            "name" : "Backing up Macbook After a crash",
             "link" : "backing-up-macbook.html"
+        },{
+           "name" : "Machine Learning",
+            "link" : "machineLearning.html"
         }
     ]
 
