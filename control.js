@@ -65,6 +65,12 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
            "name" : "Big O Time and Space for sorts and Data Types",
            "link" : "https://docs.google.com/spreadsheets/d/1RdGfkN0tM6cVLfXZ__g0FvB7rsKGly3ORmbT8SmqX-I/edit#gid=0" 
+        },{
+           "name" : "SEO",
+           "link" : "https://docs.google.com/document/d/1o5aviUgJBVoApjH6c4iD44D3AnhxX0joHUC41g91bMw/edit" 
+        },{
+           "name" : "Interview Questions",
+           "link" : "https://kjh311.github.io/interview-questions/index.html" 
         }
     ]
 
