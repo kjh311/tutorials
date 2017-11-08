@@ -70,7 +70,7 @@ app.controller('myCtrl', ['$scope', function($scope) {
            "link" : "https://docs.google.com/document/d/1o5aviUgJBVoApjH6c4iD44D3AnhxX0joHUC41g91bMw/edit" 
         },{
            "name" : "Interview Questions",
-           "link" : "https://kjh311.github.io/interview-questions/index.html" 
+           "link" : "https://docs.google.com/document/d/11qBd-fY1onNXGuk50lFq9mvlarNldcpM4YqcCuCxMeE/edit#heading=h.qfqcrdnc57sf" 
         }
     ]
 
