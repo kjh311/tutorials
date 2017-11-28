@@ -71,6 +71,9 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
            "name" : "Interview Questions",
            "link" : "https://docs.google.com/document/d/11qBd-fY1onNXGuk50lFq9mvlarNldcpM4YqcCuCxMeE/edit#heading=h.qfqcrdnc57sf" 
+        },{
+           "name" : "OUTCO LINKS",
+           "link" : "https://docs.google.com/document/d/1gCOYWXVkxk9N6tLAEyGmec4NwYFXD_JzsaZKb3MREMM/edit" 
         }
     ]
 
