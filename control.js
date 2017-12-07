@@ -77,6 +77,12 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
            "name" : "Web Accessability Guildlines",
            "link" : "https://docs.google.com/document/d/116pmkQ0uV9GevmqY0vc6kYMXfGiYK358AfP8uJB9LVw/edit" 
+        },{
+           "name" : "Retina Graphics",
+           "link" : "https://docs.google.com/document/d/1CEn8sgiZekYktt-2W0H-plNfJEDzjEHyo-ceJmpYYBQ/edit" 
+        },{
+           "name" : "Email HTML",
+           "link" : "https://docs.google.com/document/d/116pmkQ0uV9GevmqY0vc6kYMXfGiYK358AfP8uJB9LVw/edit" 
         }
     ]
 
