@@ -83,6 +83,9 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
            "name" : "Email HTML",
            "link" : "https://docs.google.com/document/d/1uYWJNUkwTCnOqzkyskHgRGgQ8sHYKztITm35aIO_MYM/edit" 
+        },{
+           "name" : "WebPack",
+           "link" : "https://docs.google.com/document/d/1-bj7NVTvz2WjT9Ufec-bXFMJ8v4mTIdnRLyapp3xye0/edit" 
         }
     ]
 
