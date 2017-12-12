@@ -87,8 +87,11 @@ app.controller('myCtrl', ['$scope', function($scope) {
            "name" : "WebPack",
            "link" : "https://docs.google.com/document/d/1-bj7NVTvz2WjT9Ufec-bXFMJ8v4mTIdnRLyapp3xye0/edit" 
         },{
-           "name" : "ES6",
+           "name" : "ES6 Javascript",
            "link" : "https://docs.google.com/document/d/1FGUXrwDlBVKFSuUOUK4j83hOQr5F34NPCRni4u2u1f0/edit" 
+        },{
+           "name" : "Object Oriented Programming",
+           "link" : "https://docs.google.com/document/d/1LWRrVhwbhgq4HN8QLWlMbx4J2PDkz8S7SGobbGI8Pes/edit" 
         }
 
     ]
