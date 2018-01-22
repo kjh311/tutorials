@@ -92,6 +92,9 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
            "name" : "Object Oriented Programming",
            "link" : "https://docs.google.com/document/d/1LWRrVhwbhgq4HN8QLWlMbx4J2PDkz8S7SGobbGI8Pes/edit" 
+        },{
+           "name" : "Boiler Plates",
+           "link" : "https://docs.google.com/document/d/1ox9eTO9ETRlGY6ljrVi_8iktlI1Mfi5gUQK0KMYPXOo/edit" 
         }
 
     ]
