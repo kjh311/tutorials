@@ -98,6 +98,9 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
            "name" : "User Authentication",
            "link" : "https://docs.google.com/document/d/1Cu7x_QnFqLPUnHgBAX3TCE08abtlGC1ls7I-unUBGn0/edit" 
+        },{
+           "name" : "REST API",
+           "link" : "https://docs.google.com/document/d/1TWbDpHI5sC-RIQhXxpbamefBNUJBGnlJOUYlvtS9uGU/edit" 
         }
 
     ]
