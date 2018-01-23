@@ -95,6 +95,9 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
            "name" : "Boiler Plates",
            "link" : "https://docs.google.com/document/d/1ox9eTO9ETRlGY6ljrVi_8iktlI1Mfi5gUQK0KMYPXOo/edit" 
+        },{
+           "name" : "User Authentication",
+           "link" : "https://docs.google.com/document/d/1Cu7x_QnFqLPUnHgBAX3TCE08abtlGC1ls7I-unUBGn0/edit" 
         }
 
     ]
