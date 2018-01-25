@@ -102,7 +102,7 @@ app.controller('myCtrl', ['$scope', function($scope) {
            "name" : "REST API",
            "link" : "https://docs.google.com/document/d/1TWbDpHI5sC-RIQhXxpbamefBNUJBGnlJOUYlvtS9uGU/edit" 
         },{
-           "name" : "Noded Package Modules",
+           "name" : "Node Package Modules",
            "link" : "https://docs.google.com/document/d/1i4o0PX8-k3-rqDdvWf-x6opniNIS87v4642pGovZuRc/edit" 
         }
 
