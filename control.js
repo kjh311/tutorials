@@ -104,6 +104,9 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
            "name" : "Node Package Modules",
            "link" : "https://docs.google.com/document/d/1i4o0PX8-k3-rqDdvWf-x6opniNIS87v4642pGovZuRc/edit" 
+        },{
+           "name" : "Socket IO",
+           "link" : "https://docs.google.com/document/d/15FJRgq0hi_9bn-Qnb2gZ4nzS4XE2K-qYChzERHXsFm4/edit" 
         }
 
     ]
