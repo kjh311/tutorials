@@ -107,6 +107,9 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
            "name" : "Socket IO",
            "link" : "https://docs.google.com/document/d/15FJRgq0hi_9bn-Qnb2gZ4nzS4XE2K-qYChzERHXsFm4/edit" 
+        },{
+           "name" : "PSD to HTML",
+           "link" : "https://docs.google.com/document/d/1sdLUr4u9L-By3VVA5Jw_XsBLXCfwkQ9oFHKW_cO9ilo/edit" 
         }
 
     ]
