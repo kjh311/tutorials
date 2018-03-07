@@ -110,6 +110,9 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
            "name" : "PSD to HTML",
            "link" : "https://docs.google.com/document/d/1sdLUr4u9L-By3VVA5Jw_XsBLXCfwkQ9oFHKW_cO9ilo/edit" 
+        },{
+           "name" : "Cross browser consistency",
+           "link" : "https://docs.google.com/document/d/1RABNyqTxw_rOVSbL8tjXz90HXayW5t16AN7XqD-8xzk/edit" 
         }
 
     ]
