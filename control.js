@@ -113,6 +113,9 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
            "name" : "Cross browser consistency",
            "link" : "https://docs.google.com/document/d/1RABNyqTxw_rOVSbL8tjXz90HXayW5t16AN7XqD-8xzk/edit" 
+        },{
+           "name" : "Ruby on Rails",
+           "link" : "https://docs.google.com/document/d/1h3ybplv4Cf_MZwZiSYYScdPI4_VYQ7KUlG7qfU8oRrA/edit" 
         }
 
     ]
