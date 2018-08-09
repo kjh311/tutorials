@@ -116,6 +116,12 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
            "name" : "Ruby on Rails",
            "link" : "https://docs.google.com/document/d/1h3ybplv4Cf_MZwZiSYYScdPI4_VYQ7KUlG7qfU8oRrA/edit" 
+        },{
+           "name" : "JOB TACKER",
+           "link" : "https://docs.google.com/spreadsheets/d/1gSw7s5zWh1AXBs9U-LNoRywiJzaCH43xlQ3FC0RrE7M/edit#gid=0/edit" 
+        },{
+           "name" : "COVER LETTER",
+           "link" : "https://docs.google.com/document/d/1K0c6S6s8YzrBrq31Je5GsLkuD_OM6EY-b-Xn1lUq9Qs/edit" 
         }
 
     ]
