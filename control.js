@@ -122,6 +122,9 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
            "name" : "COVER LETTER",
            "link" : "https://docs.google.com/document/d/1K0c6S6s8YzrBrq31Je5GsLkuD_OM6EY-b-Xn1lUq9Qs/edit" 
+        },{
+           "name" : "RESUME",
+           "link" : "http://kjh311.github.io/Kevin_Huelsmann_Portfolio/Kevin_Huelsmann_Tech_Resume.pdf?" 
         }
 
     ]
