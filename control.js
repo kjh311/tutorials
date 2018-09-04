@@ -125,6 +125,9 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
            "name" : "RESUME",
            "link" : "http://kjh311.github.io/Kevin_Huelsmann_Portfolio/Kevin_Huelsmann_Tech_Resume.pdf?" 
+        },{
+           "name" : "RESPONSIVE DESIGN",
+           "link" : "https://docs.google.com/document/d/11tOglVlcodPJAnkp5U99W1EmL6tu413-AK-e1ydspwU/edit" 
         }
 
     ]
