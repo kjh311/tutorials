@@ -128,6 +128,9 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
            "name" : "RESPONSIVE DESIGN",
            "link" : "https://docs.google.com/document/d/11tOglVlcodPJAnkp5U99W1EmL6tu413-AK-e1ydspwU/edit" 
+        },{
+           "name" : "STYLE GUIDELINES",
+           "link" : "https://docs.google.com/document/d/1MaxgNIF30MmN3p0zV1CK0MG8uUGZ5QmI5bnbzOdNKjs/edit" 
         }
 
     ]
