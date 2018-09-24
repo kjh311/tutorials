@@ -131,6 +131,9 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
            "name" : "STYLE GUIDELINES",
            "link" : "https://docs.google.com/document/d/1MaxgNIF30MmN3p0zV1CK0MG8uUGZ5QmI5bnbzOdNKjs/edit" 
+        },{
+           "name" : "PROGRESSIVE IMAGE LOADING",
+           "https://docs.google.com/document/d/1Rfn18DKDA1uRgueNk7ihhTTKDwTtb8FqLV6HIke8ROY/edit" 
         }
 
     ]
