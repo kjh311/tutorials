@@ -19,7 +19,7 @@ app.controller('myCtrl', ['$scope', function($scope) {
             "link" : "https://docs.google.com/document/d/15wFpFjs7LvGTzs1ekeDXch9xHN3lMqisNyZ1H1hrZi8/edit?usp=sharing"
         },{
             "name" : "Javascript",
-            "link" : "https://docs.google.com/document/d/171EGFnSvRig9RXdj-NBaVlqW_i4ZqnzuOmau7k1-jL8/edit?usp=sharing"
+            "link" : "https://docs.google.com/document/d/1DCntNPd2SM_peqOI2FIhzVAjeE1WmwsJEDxV2JKk48k/edit"
         },{
             "name" : "Setting up Node",
             "link" : "https://docs.google.com/document/d/1dcVEbqgiQWRsKoSmqhDew4PHXXY-lWnxQzT_IyKWtpo/edit?usp=sharing"
