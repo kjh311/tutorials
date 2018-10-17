@@ -137,7 +137,11 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
            "name" : "SVG",
            "link" : "https://docs.google.com/document/d/1i5Uq1JNbZVc1ZZo2NQ6cZHlEWrJSGqnYsaSIrBQQJSI/edit" 
+        },{
+           "name" : "EMAIL SIGNATURE",
+           "link" : "https://kjh311.github.io/signature/" 
         }
+
 
     ]
 
