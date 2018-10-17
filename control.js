@@ -7,7 +7,7 @@ app.controller('myCtrl', ['$scope', function($scope) {
 
   var vm = this;
 
-   $scope.links = [
+   $scope.links = [{
         
             "name" : "A/B Testing",
             "link" : "https://docs.google.com/document/d/1oAGs_4qRMF_1G-TeuS1CG8ClVcTWxuLYLDcal7l5DHU/edit?usp=sharing"
