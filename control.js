@@ -134,6 +134,9 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
            "name" : "PROGRESSIVE IMAGE LOADING",
            "link" : "https://docs.google.com/document/d/1Rfn18DKDA1uRgueNk7ihhTTKDwTtb8FqLV6HIke8ROY/edit" 
+        },{
+           "name" : "SVG",
+           "link" : "https://docs.google.com/document/d/1i5Uq1JNbZVc1ZZo2NQ6cZHlEWrJSGqnYsaSIrBQQJSI/edit" 
         }
 
     ]
