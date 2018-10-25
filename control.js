@@ -142,7 +142,6 @@ app.controller('myCtrl', ['$scope', function($scope) {
            "link" : "https://kjh311.github.io/signature/" 
         }
 
-
     ]
 
 }]);
