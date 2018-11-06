@@ -140,6 +140,9 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
            "name" : "EMAIL SIGNATURE",
            "link" : "https://kjh311.github.io/signature/" 
+        },{
+           "name" : "UI/UX",
+           "link" : "https://docs.google.com/document/d/16lcGU3qiaRZxDbsTb5BGRkldmxQpLyfQnBQgL5dPFB0/edit" 
         }
 
     ]
