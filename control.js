@@ -145,10 +145,9 @@ app.controller('myCtrl', ['$scope', function($scope) {
            "link" : "https://docs.google.com/document/d/16lcGU3qiaRZxDbsTb5BGRkldmxQpLyfQnBQgL5dPFB0/edit" 
         }
         ,{
-           "name" : "InDesign Web Design",
+           "name" : "InDesign Web Design and Wireframing",
            "link" : "https://docs.google.com/document/d/1_6f1ZhMLZT92TZd-n9jFnngtf1IlVEmCI5y4r8DaIqk/edit" 
         }
-
     ]
 
 }]);
