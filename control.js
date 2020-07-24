@@ -147,6 +147,9 @@ app.controller('myCtrl', ['$scope', function($scope) {
         ,{
            "name" : "InDesign Web Design and Wireframing",
            "link" : "https://docs.google.com/document/d/1_6f1ZhMLZT92TZd-n9jFnngtf1IlVEmCI5y4r8DaIqk/edit" 
+        },{
+           "name" : "APRENTI",
+           "link" : "https://docs.google.com/document/d/1_6uCfrbBK7hJSja_QDYK3iY7tGFOARsSh9ggUgv-Ykc/edit" 
         }
     ]
 
