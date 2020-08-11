@@ -150,6 +150,12 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
            "name" : "APRENTI",
            "link" : "https://docs.google.com/document/d/1_6uCfrbBK7hJSja_QDYK3iY7tGFOARsSh9ggUgv-Ykc/edit" 
+        },{
+           "name" : "HTML",
+           "link" : "https://docs.google.com/document/d/1AVlGT30TguRCj5x3DuuWftlOHgqK0Q9BBlw8aSAKnu4/edit" 
+        },{
+           "name" : "CSS",
+           "link" : "https://docs.google.com/document/d/19b9h2VrsmkKr15TpkCCeaFFDP0qQGesVC514pUPqh3A/edit" 
         }
     ]
 
