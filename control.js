@@ -156,7 +156,11 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
            "name" : "CSS",
            "link" : "https://docs.google.com/document/d/19b9h2VrsmkKr15TpkCCeaFFDP0qQGesVC514pUPqh3A/edit" 
+        },{
+           "name" : "TO STUDY:",
+           "link" : "https://docs.google.com/document/d/1nt43rt71D5L8D8cWBm3bUwS41Gvofsg6NqCGSKfqXsU/edit" 
         }
+
     ]
 
 }]);
