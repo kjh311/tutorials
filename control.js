@@ -159,6 +159,9 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
            "name" : "TO STUDY:",
            "link" : "https://docs.google.com/document/d/1nt43rt71D5L8D8cWBm3bUwS41Gvofsg6NqCGSKfqXsU/edit" 
+        },{
+           "name" : "FLEXBOX",
+           "link" : "https://docs.google.com/document/d/1IdxmZ6L3Tv2o4Dwf9op7JlMCXWknYy-Hoc78WEVadzE/edit" 
         }
 
     ]
