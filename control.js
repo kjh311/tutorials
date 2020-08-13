@@ -162,7 +162,11 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
            "name" : "FLEXBOX",
            "link" : "https://docs.google.com/document/d/1IdxmZ6L3Tv2o4Dwf9op7JlMCXWknYy-Hoc78WEVadzE/edit" 
+        },{
+           "name" : "BOOTSTRAP 4",
+           "link" : "https://docs.google.com/document/d/1uYzPahdeupy3Ac9I2sIbSk9hPfkYT9TkDlgzBFGtIrw/edit" 
         }
+
 
     ]
 
