@@ -143,8 +143,7 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
            "name" : "UI/UX",
            "link" : "https://docs.google.com/document/d/16lcGU3qiaRZxDbsTb5BGRkldmxQpLyfQnBQgL5dPFB0/edit" 
-        }
-        ,{
+        },{
            "name" : "InDesign Web Design and Wireframing",
            "link" : "https://docs.google.com/document/d/1_6f1ZhMLZT92TZd-n9jFnngtf1IlVEmCI5y4r8DaIqk/edit" 
         },{
@@ -165,6 +164,9 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
            "name" : "BOOTSTRAP 4",
            "link" : "https://docs.google.com/document/d/1uYzPahdeupy3Ac9I2sIbSk9hPfkYT9TkDlgzBFGtIrw/edit" 
+        },{
+           "name" : "Accessability",
+           "link" : "https://docs.google.com/document/d/1nhNR11rO4cVjum2ILemd6G5zv847lFJeAn5uq5t1FHI/edit" 
         }
 
 
