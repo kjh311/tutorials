@@ -170,6 +170,9 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
            "name" : "Adobe Illustrator",
            "link" : "https://docs.google.com/document/d/1_7GWn0wh_TkJ-4I17F9bbCF9hkgYpLN4uUnLJGZRf8c/edit" 
+        },{
+           "name" : "Sketch",
+           "link" : "https://docs.google.com/document/d/1sCUBQBYDz-9BAQSp3RewCeuoq9gxT28jk8mHfRbWH7k/edit" 
         }
 
 
