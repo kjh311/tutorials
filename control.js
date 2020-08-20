@@ -167,6 +167,9 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
            "name" : "Accessability",
            "link" : "https://docs.google.com/document/d/1nhNR11rO4cVjum2ILemd6G5zv847lFJeAn5uq5t1FHI/edit" 
+        },{
+           "name" : "Adobe Illustrator",
+           "link" : "https://docs.google.com/document/d/1_7GWn0wh_TkJ-4I17F9bbCF9hkgYpLN4uUnLJGZRf8c/edit" 
         }
 
 
