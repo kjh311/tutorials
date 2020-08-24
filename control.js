@@ -188,6 +188,9 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
            "name" : "WEBPACK",
            "link" : "https://docs.google.com/document/d/1ztdohN1AaS4nqklERTGoPF0M0FtXFoXKeZ79r0zXF-A/edit" 
+        },{
+           "name" : "Information Architecture",
+           "link" : "https://docs.google.com/document/d/1s8y4m5rfohG1skT-LUZkahMSJ9KwGyDSKwIy9hBHQjM/edit" 
         }
 
 
