@@ -185,6 +185,9 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
            "name" : "GRUNT / GULP",
            "link" : "https://docs.google.com/document/d/1bcKOyKPuxpwJSgNMdxolApZKb4839DheZTArY8u9mbw/edit" 
+        },{
+           "name" : "WEBPACK",
+           "link" : "https://docs.google.com/document/d/1ztdohN1AaS4nqklERTGoPF0M0FtXFoXKeZ79r0zXF-A/edit" 
         }
 
 
