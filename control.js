@@ -176,7 +176,11 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
            "name" : "BOOTSTRAP 5",
            "link" : "https://docs.google.com/document/d/1d1_CYGxPHgPYOLwA_q3srfRAkXEVzDahq2yyOqhLc-A/edit" 
+        },{
+           "name" : "MATERIAL DESIGN",
+           "link" : "https://docs.google.com/document/d/1oy5uxfsAtgZwAghi3fUZc4KYskzO1-cFspSKrE3c5WE/edit" 
         }
+
 
 
     ]
