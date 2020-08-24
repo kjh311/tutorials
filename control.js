@@ -173,6 +173,9 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
            "name" : "Sketch",
            "link" : "https://docs.google.com/document/d/1sCUBQBYDz-9BAQSp3RewCeuoq9gxT28jk8mHfRbWH7k/edit" 
+        },{
+           "name" : "BOOTSTRAP 5",
+           "link" : "https://docs.google.com/document/d/1d1_CYGxPHgPYOLwA_q3srfRAkXEVzDahq2yyOqhLc-A/edit" 
         }
 
 
