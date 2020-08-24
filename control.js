@@ -182,6 +182,9 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
            "name" : "API Consumption",
            "link" : "https://docs.google.com/document/d/1jg_oL_vXNIfCwQ7dvArryJ4kGzMj3EAee7_ZFWTxs0Y/edit" 
+        },{
+           "name" : "GRUNT / GULP",
+           "link" : "https://docs.google.com/document/d/1bcKOyKPuxpwJSgNMdxolApZKb4839DheZTArY8u9mbw/edit" 
         }
 
 
