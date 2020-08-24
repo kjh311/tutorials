@@ -179,6 +179,9 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
            "name" : "MATERIAL DESIGN",
            "link" : "https://docs.google.com/document/d/1oy5uxfsAtgZwAghi3fUZc4KYskzO1-cFspSKrE3c5WE/edit" 
+        },{
+           "name" : "API Consumption",
+           "link" : "https://docs.google.com/document/d/1jg_oL_vXNIfCwQ7dvArryJ4kGzMj3EAee7_ZFWTxs0Y/edit" 
         }
 
 
