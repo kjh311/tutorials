@@ -191,6 +191,9 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
            "name" : "Information Architecture",
            "link" : "https://docs.google.com/document/d/1s8y4m5rfohG1skT-LUZkahMSJ9KwGyDSKwIy9hBHQjM/edit" 
+        },{
+           "name" : "MODEL VIEW CONTROLLER",
+           "link" : "https://docs.google.com/document/d/124MjZTxB0NNFrLYFRwKfy0hweKAL-DrGcSBWJKPd-1M/edit" 
         }
 
 
