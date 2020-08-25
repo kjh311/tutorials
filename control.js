@@ -197,6 +197,9 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
            "name" : "Greensock Animation",
            "link" : "https://docs.google.com/document/d/124MjZTxB0NNFrLYFRwKfy0hweKAL-DrGcSBWJKPd-1M/edit" 
+        },{
+           "name" : "REGEX (Regular Expressions)",
+           "link" : "https://docs.google.com/document/d/1VVf1YUxeoKEWpGrXCuxuMiD6c8pZTnDQ1YZ9pE2RwcQ/edit" 
         }
 
 
