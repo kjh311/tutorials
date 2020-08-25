@@ -194,6 +194,9 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
            "name" : "MODEL VIEW CONTROLLER",
            "link" : "https://docs.google.com/document/d/124MjZTxB0NNFrLYFRwKfy0hweKAL-DrGcSBWJKPd-1M/edit" 
+        },{
+           "name" : "Greensock Animation",
+           "link" : "https://docs.google.com/document/d/124MjZTxB0NNFrLYFRwKfy0hweKAL-DrGcSBWJKPd-1M/edit" 
         }
 
 
