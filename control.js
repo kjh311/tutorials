@@ -21,7 +21,7 @@ app.controller('myCtrl', ['$scope', function($scope) {
             "name" : "Javascript",
             "link" : "https://docs.google.com/document/d/1DCntNPd2SM_peqOI2FIhzVAjeE1WmwsJEDxV2JKk48k/edit"
         },{
-            "name" : "Setting up Node",
+            "name" : "Node",
             "link" : "https://docs.google.com/document/d/1dcVEbqgiQWRsKoSmqhDew4PHXXY-lWnxQzT_IyKWtpo/edit?usp=sharing"
         },{
             "name" : "Host on Github",
