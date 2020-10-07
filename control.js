@@ -200,6 +200,9 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
            "name" : "REGEX (Regular Expressions)",
            "link" : "https://docs.google.com/document/d/1VVf1YUxeoKEWpGrXCuxuMiD6c8pZTnDQ1YZ9pE2RwcQ/edit" 
+        },{
+           "name" : "optimizing client side performance",
+           "link" : "https://docs.google.com/document/d/1VVf1YUxeoKEWpGrXCuxuMiD6c8pZTnDQ1YZ9pE2RwcQ/edit" 
         }
 
 
