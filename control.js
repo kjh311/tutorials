@@ -203,6 +203,15 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
            "name" : "optimizing client side performance",
            "link" : "https://docs.google.com/document/d/1VVf1YUxeoKEWpGrXCuxuMiD6c8pZTnDQ1YZ9pE2RwcQ/edit" 
+        },{
+           "name" : "SVG Animation",
+           "link" : "https://docs.google.com/document/d/1xE7EFFSyBQrA3pp--QbFAwepb17dUROx_jpFNrgomvY/edit" 
+        },{
+           "name" : "Bootstrap Studio",
+           "link" : "https://docs.google.com/document/d/1ZyGThF1uNGJa9Ht6TOy9w1MpOD4gwfkwJPEZwMdEzMg/edit" 
+        },{
+           "name" : "Visual Studio Code",
+           "link" : "https://docs.google.com/document/d/1URWSdERfzefRImg0vzGzQ1B9xJQZw9H-Zftftkv02Yo/edit" 
         }
 
 
