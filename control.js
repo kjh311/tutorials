@@ -212,6 +212,9 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
            "name" : "Visual Studio Code",
            "link" : "https://docs.google.com/document/d/1URWSdERfzefRImg0vzGzQ1B9xJQZw9H-Zftftkv02Yo/edit" 
+        },{
+           "name" : "Google Spreadsheets as Database",
+           "link" : "https://docs.google.com/document/d/1SPrycwQmwgZkvPRAe1aH_o_FdJumFclNr68UlW7QwtU/edit" 
         }
 
 
