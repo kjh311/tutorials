@@ -215,7 +215,10 @@ app.controller('myCtrl', ['$scope', function($scope) {
         },{
            "name" : "Google Spreadsheets as Database",
            "link" : "https://docs.google.com/document/d/1SPrycwQmwgZkvPRAe1aH_o_FdJumFclNr68UlW7QwtU/edit" 
-        }
+        },{
+         "name" : "Model View Controller",
+         "link" : "https://docs.google.com/document/d/1jGpErp13LiZOTHDLcjRmic_Wb3QW7KTBYSC0C6tMGss/edit" 
+      }
 
 
 
