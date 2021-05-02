@@ -216,6 +216,10 @@ app.controller('myCtrl', ['$scope', function($scope) {
            "name" : "Google Spreadsheets as Database",
            "link" : "https://docs.google.com/document/d/1SPrycwQmwgZkvPRAe1aH_o_FdJumFclNr68UlW7QwtU/edit" 
         }
+        ,{
+         "name" : "Wordpress",
+         "link" : "https://docs.google.com/document/d/1AIpefx9jBwN0I1VPxdkLhmd3GSQKa5nEUx1h4BGcke4/edit" 
+      }
 
 
 
