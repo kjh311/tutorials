@@ -291,6 +291,10 @@ app.controller("myCtrl", [
         name: "Nft",
         link: "https://docs.google.com/document/d/1pb7srGW4gkcd2s9MuJlH-cqqcthq5brFZoELjMeK94c/edit",
       },
+      {
+        name: "Solidity Ethereum Smart Contracts",
+        link: "https://docs.google.com/document/d/149yxiFit4xgIzW15NWYZ3RpWKAxrdSwhHof0BZFA7Fg/edit#",
+      },
     ];
   },
 ]);
