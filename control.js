@@ -295,6 +295,10 @@ app.controller("myCtrl", [
         name: "Solidity Ethereum Smart Contracts",
         link: "https://docs.google.com/document/d/149yxiFit4xgIzW15NWYZ3RpWKAxrdSwhHof0BZFA7Fg/edit#",
       },
+      {
+        name: "Animate on Scroll",
+        link: "https://docs.google.com/document/d/1usNK215PXwyqOLCmO7-9xSuj8jxqAW6yYEQGZ-v1P3w/edit",
+      },
     ];
   },
 ]);
