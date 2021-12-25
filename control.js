@@ -44,7 +44,7 @@ app.controller("myCtrl", [
         link: "https://docs.google.com/document/d/1tuIvVJCGadV2EwZVG3la5yHq4VaGkX9ehOD0KzXd8ls/edit?usp=sharing",
       },
       {
-        name: "Animation JS and CSS",
+        name: "Animate with JS and CSS",
         link: "https://docs.google.com/document/d/1q8YlhZ3wLaIdHq0Ew-HG60cN0LaEPYEKmXABbV1D5_E/edit?usp=sharing",
       },
       {
@@ -256,7 +256,7 @@ app.controller("myCtrl", [
         link: "https://docs.google.com/document/d/124MjZTxB0NNFrLYFRwKfy0hweKAL-DrGcSBWJKPd-1M/edit",
       },
       {
-        name: "Greensock Animation",
+        name: "Animation with Greensock",
         link: "https://docs.google.com/document/d/124MjZTxB0NNFrLYFRwKfy0hweKAL-DrGcSBWJKPd-1M/edit",
       },
       {
@@ -268,7 +268,7 @@ app.controller("myCtrl", [
         link: "https://docs.google.com/document/d/1VVf1YUxeoKEWpGrXCuxuMiD6c8pZTnDQ1YZ9pE2RwcQ/edit",
       },
       {
-        name: "SVG Animation",
+        name: "Animate SVG",
         link: "https://docs.google.com/document/d/1xE7EFFSyBQrA3pp--QbFAwepb17dUROx_jpFNrgomvY/edit",
       },
       {
@@ -298,6 +298,10 @@ app.controller("myCtrl", [
       {
         name: "Animate on Scroll",
         link: "https://docs.google.com/document/d/1usNK215PXwyqOLCmO7-9xSuj8jxqAW6yYEQGZ-v1P3w/edit",
+      },
+      {
+        name: "Animate Page Transitions",
+        link: "https://docs.google.com/document/d/15B2N2dfMRDl67cZcJk4DISuHnn-72V0tLB9Wb3sdEG8/edit",
       },
     ];
   },
