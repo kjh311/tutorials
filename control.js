@@ -302,7 +302,7 @@ app.controller("myCtrl", [
       },
       {
         name: "A.I. Generated Art",
-        link: "https://docs.google.com/document/d/15B2N2dfMRDl67cZcJk4DISuHnn-72V0tLB9Wb3sdEG8/edit",
+        link: "https://docs.google.com/document/d/1eR7GrcBqeaY2B3PepEy1J_m3tzRW4VjDDMaG3ZNEYBo/edit",
       },
     ];
   },
