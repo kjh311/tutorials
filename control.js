@@ -254,7 +254,7 @@ app.controller("myCtrl", [
       },
       {
         name: "Animation with Greensock",
-        link: "https://docs.google.com/document/d/124MjZTxB0NNFrLYFRwKfy0hweKAL-DrGcSBWJKPd-1M/edit",
+        link: "https://docs.google.com/document/d/1trM1PsfCVJX8n5FjRVlutXZuVVlaU6cDp1tQPR7DQy0/edit",
       },
       {
         name: "REGEX (Regular Expressions)",
