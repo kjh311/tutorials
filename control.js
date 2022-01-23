@@ -301,6 +301,10 @@ app.controller("myCtrl", [
         name: "A.I. Generated Art",
         link: "https://docs.google.com/document/d/1eR7GrcBqeaY2B3PepEy1J_m3tzRW4VjDDMaG3ZNEYBo/edit",
       },
+      {
+        name: "Google Web Designer",
+        link: "https://docs.google.com/document/d/1R_AceqXm39NESdLUEIngHvvkIzFsUAZT-TzBms7G-XY/edit",
+      },
     ];
   },
 ]);
